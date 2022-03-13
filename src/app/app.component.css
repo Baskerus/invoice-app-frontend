@@ -1,39 +1,19 @@
-mat-sidenav-container {
-  height: 100%;
-  overflow: scroll;
-}
-
-mat-sidenav {
-  width: clamp(0px, 100%, 460px);
-  height: fit-content;
-
-  padding: 5rem 1rem 2rem 1rem;
-
-  border: 1px solid lightgray;
-  border-radius: 0 0rem 0.8rem 0;
-}
-
-.btn-group {
+.MAIN {
   display: flex;
-  justify-content: center;
-  justify-self: center;
+  position: absolute;
 
-  width: 100%;
-}
+  top: 0;
+  right: 0;
 
-.btn-lg {
-  display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 8.3rem;
-  padding: 0.3rem 1.3rem;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 2;
 }
 
-.mr {
-  margin-right: 0.7rem;
-  margin-top: 0.2rem;
-}
-
-.add-btn {
-  margin: 1rem;
+.test {
+  position: relative;
 }

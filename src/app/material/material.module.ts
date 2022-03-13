@@ -8,6 +8,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatMenuModule } from '@angular/material/menu';
+import {MatCardModule} from '@angular/material/card';
 
 const material = [
   MatSidenavModule,
@@ -19,6 +22,9 @@ const material = [
   MatDividerModule,
   MatListModule,
   MatIconModule,
+  MatExpansionModule,
+  MatMenuModule,
+  MatCardModule
 ];
 
 @NgModule({

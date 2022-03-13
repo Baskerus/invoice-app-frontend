@@ -1,31 +1,9 @@
-<mat-sidenav-container>
-  <mat-sidenav #drawer mode="side">
-    <app-sidebar-form sidebarOpen="opened"></app-sidebar-form>
-    <div class="btn-group">
-      <button
-        class="btn-lg mr"
-        mat-button
-        color="primary"
-        (click)="drawer.toggle()"
-      >
-        Cancel
-      </button>
-      <button
-        class="btn-lg"
-        mat-raised-button
-        color="primary"
-        (click)="drawer.toggle()"
-      >
-        <mat-icon class="icon" aria-hidden="false" aria-label="add icon"
-          >add</mat-icon
-        >
-        <span class="mr">ADD</span>
-      </button>
-    </div>
-  </mat-sidenav>
-
-  <button class="add-btn" mat-fab color="primary" (click)="drawer.toggle()">
-    <mat-icon *ngIf="!drawer.opened" aria-hidden="false" aria-label="add icon">add</mat-icon>
-    <mat-icon *ngIf="drawer.opened" aria-hidden="false" aria-label="add icon">close</mat-icon>
-  </button>
-</mat-sidenav-container>
+<div class="MAIN">
+  <div style="display: flex; width: 150px; justify-content: space-between">
+    <button routerLink="/" mat-stroked-button>Back</button>
+    <button routerLink="/add" mat-raised-button color="accent">ADD</button>
+  </div>
+</div>
+<div >
+  <router-outlet></router-outlet>
+</div>

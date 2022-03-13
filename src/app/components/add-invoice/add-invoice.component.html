@@ -1,0 +1,90 @@
+<div class="form-wrapper">
+  <form class="form">
+    <div class="title-wrapper">
+      <mat-card-title>Create invoice</mat-card-title>
+    </div>
+
+    <span class="title-sm mat-h4">Billing information</span>
+
+    <mat-form-field class="form-field-lg" appearance="outline">
+      <mat-label>Client Name</mat-label>
+      <input matInput type="text" required />
+    </mat-form-field>
+
+    <mat-form-field class="form-field-lg" appearance="outline">
+      <mat-label>Client's Email</mat-label>
+      <input matInput type="email" value="test_email@test.org" required />
+    </mat-form-field>
+
+    <mat-form-field class="form-field-lg" appearance="outline">
+      <mat-label>Street Address</mat-label>
+      <input matInput type="text" value="66th Hell Cauldron's Way" />
+    </mat-form-field>
+
+    <div class="address-wrapper">
+      <mat-form-field class="form-field-sm" appearance="outline">
+        <mat-label>City</mat-label>
+        <input matInput type="text" value="Boston" />
+      </mat-form-field>
+
+      <mat-form-field class="form-field-sm" appearance="outline">
+        <mat-label>Postal Code</mat-label>
+        <input
+          matInput
+          #postalCode
+          maxlength="5"
+          placeholder="Ex. 94105"
+          value="94043"
+        />
+        <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field class="form-field-sm" appearance="outline">
+        <mat-label>Country</mat-label>
+        <input matInput type="text" value="MA" />
+      </mat-form-field>
+    </div>
+
+    <mat-form-field class="form-field-lg" appearance="outline">
+      <mat-label>Project description</mat-label>
+      <textarea matInput>
+    Some detailed project description. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae, maxime!</textarea
+      >
+    </mat-form-field>
+
+    <div class="input-wrapper">
+      <mat-form-field class="date-input" appearance="outline">
+        <mat-label>Choose a due date</mat-label>
+        <input matInput [matDatepicker]="picker" value="2014-02-09" required />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="bill" appearance="outline" floatLabel="always">
+        <mat-label matPrefix
+          ><mat-icon class="icon" aria-hidden="false" aria-label="add icon"
+            >attach_money</mat-icon
+          ></mat-label
+        >
+        <mat-label>Bill Total</mat-label>
+        <input matInput required
+      /></mat-form-field>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn-lg mr" mat-button color="primary">
+        Cancel
+      </button>
+      <button mat-raised-button type="submit" class="btn-lg" color="primary">
+        <mat-icon class="icon" aria-hidden="false" aria-label="add icon"
+          >add</mat-icon
+        >
+        <span class="mr">ADD</span>
+      </button>
+    </div>
+  </form>
+</div>
+
+<!-- <button class="add-btn" mat-fab color="primary">
+  <mat-icon aria-hidden="false" aria-label="add icon">add</mat-icon>
+</button>
+ -->

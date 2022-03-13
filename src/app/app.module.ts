@@ -9,11 +9,11 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 
-import { SidebarService } from './service/sidebar.service';
-import { SidebarFormComponent } from './components/sidebar-form/sidebar-form.component';
+import { AddInvoiceComponent } from './components/add-invoice/add-invoice.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, SidebarFormComponent],
+  declarations: [AppComponent, AddInvoiceComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,7 +22,7 @@ import { SidebarFormComponent } from './components/sidebar-form/sidebar-form.com
     BrowserAnimationsModule,
     MaterialModule,
   ],
-  providers: [SidebarService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

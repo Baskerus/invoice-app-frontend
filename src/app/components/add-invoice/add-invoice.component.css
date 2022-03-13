@@ -1,4 +1,24 @@
-.sidenav-inner-container {
+
+.form-wrapper {
+  position: absolute;
+
+  height: fit-content;
+  width: clamp(0px, 100%, 460px);
+
+  padding: 5rem 1rem 2rem 1rem;
+
+  border: 1px solid lightgray;
+  border-radius: 0 0rem 0.8rem 0;
+
+  z-index: 10;
+}
+
+.add-btn {
+  position: absolute;
+  margin: 1rem;
+}
+
+.form {
   display: flex;
 
   flex-direction: column;
@@ -46,6 +66,39 @@
   margin: 1rem 0;
 }
 
+.input-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  margin: 1rem 0;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: flex-end;
+  justify-self: center;
+
+  width: 100%;
+}
+
+.btn-lg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 8.3rem;
+  padding: 0.3rem 1.3rem;
+}
+
+.mr {
+  margin-right: 0.7rem;
+  margin-top: 0.2rem;
+}
+
+.date-input {
+  width: 48%;
+}
+
 .form-field-lg {
   width: 100%;
 }
@@ -55,5 +108,6 @@
 }
 
 .bill {
-  font-size: medium;
+  text-align: center;
+  width: 48%;
 }

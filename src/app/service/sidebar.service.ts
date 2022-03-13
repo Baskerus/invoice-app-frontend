@@ -4,12 +4,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class SidebarService {
-  sidebarOpen = false;
+  sidebarOpen;
 
   constructor() {}
 
-  toggleSidebar() {
+  public toggleSidebar = () => {
     this.sidebarOpen = !this.sidebarOpen;
-    console.log('Sidebar open: ', this.sidebarOpen);
-  }
+    console.log("sidebar open: ", this.sidebarOpen)
+  };
 }

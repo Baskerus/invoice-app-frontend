@@ -7,14 +7,15 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-add-invoice',
+  templateUrl: './add-invoice.component.html',
+  styleUrls: ['./add-invoice.component.css'],
+  encapsulation: ViewEncapsulation.None,
+ 
 })
-export class AppComponent implements OnInit {
+export class AddInvoiceComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
