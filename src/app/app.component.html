@@ -1,9 +1,21 @@
-<div class="MAIN">
-  <div style="display: flex; width: 150px; justify-content: space-between">
-    <button routerLink="/" mat-stroked-button>Back</button>
-    <button routerLink="/add" mat-raised-button color="accent">ADD</button>
-  </div>
-</div>
-<div >
-  <router-outlet></router-outlet>
-</div>
+<mat-sidenav-container>
+  <mat-sidenav #sidebar [opened]="sidebarOpen">
+    <app-add-invoice (openEvent)="closeSidebar()"></app-add-invoice>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <button
+      class="add-btn"
+      mat-fab
+      color="primary"
+      (click)="!sidebar.opened && openSidebar(); sidebar.opened = true"
+    >
+      <mat-icon id="open" aria-hidden="false" aria-label="add icon"
+        >add</mat-icon
+      >
+    </button>
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<div></div>

@@ -1,13 +1,4 @@
-import {
-  animate,
-  query,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +6,17 @@ import { RouterOutlet } from '@angular/router';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
+  sidebarOpen;
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  // Functions
+  closeSidebar() {
+    this.sidebarOpen = false;
+  }
+  openSidebar() {
+    this.sidebarOpen = true;
+  }
 }
