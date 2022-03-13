@@ -1,4 +1,4 @@
-<form class="form">
+<form class="form" (ngSubmit)="handleSubmit()">
   <div class="title-wrapper">Create invoice</div>
 
   <span class="title-sm mat-h4">Billing information</span>
@@ -73,11 +73,17 @@
       class="btn-lg"
       mat-button
       color="primary"
-      (click)="emitEvent($event)"
+      (click)="emitCloseEvent($event)"
     >
       Cancel
     </button>
-    <button mat-raised-button type="submit" class="btn-lg" color="primary">
+    <button
+      mat-raised-button
+      type="submit"
+      class="btn-lg"
+      color="primary"
+      (click)="emitCloseEvent($event)"
+    >
       <mat-icon class="icon" aria-hidden="false" aria-label="add icon"
         >add</mat-icon
       >

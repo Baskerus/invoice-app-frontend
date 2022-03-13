@@ -1,19 +1,18 @@
 <mat-sidenav-container>
   <mat-sidenav #sidebar [opened]="sidebarOpen">
-    <app-add-invoice (openEvent)="closeSidebar()"></app-add-invoice>
+    <app-add-invoice (closeEvent)="showSidebar(false)"></app-add-invoice>
   </mat-sidenav>
   <mat-sidenav-content>
     <button
       class="add-btn"
       mat-fab
       color="primary"
-      (click)="!sidebar.opened && openSidebar(); sidebar.opened = true"
+      (click)="!sidebar.opened && showSidebar(true); sidebar.opened = true"
     >
       <mat-icon id="open" aria-hidden="false" aria-label="add icon"
         >add</mat-icon
       >
     </button>
-
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

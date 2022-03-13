@@ -13,10 +13,8 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {}
 
   // Functions
-  closeSidebar() {
-    this.sidebarOpen = false;
-  }
-  openSidebar() {
-    this.sidebarOpen = true;
+
+  showSidebar(option: boolean) {
+    option ? (this.sidebarOpen = true) : (this.sidebarOpen = false);
   }
 }

@@ -13,13 +13,17 @@ import {
   encapsulation: ViewEncapsulation.None,
 })
 export class AddInvoiceComponent implements OnInit {
-  @Output() openEvent = new EventEmitter();
+  @Output() closeEvent = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  emitEvent(e) {
-    this.openEvent.emit(e);
+  emitCloseEvent(e) {
+    this.closeEvent.emit(e);
+  }
+
+  handleSubmit() {
+    console.log('Submitted form.');
   }
 }
