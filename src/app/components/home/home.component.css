@@ -7,15 +7,14 @@
   flex-direction: column;
 
   width: clamp(200px, fit-content, 800px);
+  max-height: 600px;
 
   margin: auto;
-  padding: 1rem 1.5rem;
-
-  /*  border: 1px solid lightgray;
-
-  border-radius: 0.5rem; */
+  padding: 1rem;
 
   list-style: none;
+
+  overflow-y: auto;
 }
 
 ul li:last-child {
@@ -27,7 +26,6 @@ ul li:last-child {
   align-items: center;
   justify-content: space-between;
 
-  margin: 0 1.5rem;
   padding: 0 1.5rem;
 }
 
@@ -51,7 +49,7 @@ ul li:last-child {
 
   width: 7.8rem;
 
-  padding: 0.5rem;
+  padding: 0.4rem;
   border-radius: 1.5rem;
 
   background-color: var(--primary);
@@ -77,4 +75,14 @@ ul li:last-child {
   color: white;
 
   margin-right: 0.2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .inner-header {
+    justify-content: center;
+    text-align: center;
+  }
+  .add-btn {
+    display: none;
+  }
 }

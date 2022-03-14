@@ -4,6 +4,7 @@ import {
   Output,
   ViewEncapsulation,
   EventEmitter,
+  Input,
 } from '@angular/core';
 
 @Component({

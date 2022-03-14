@@ -1,1 +1,20 @@
-<mat-card class="invoice"></mat-card>
+<mat-card class="invoice">
+  <div class="date-info">
+    <span class="id"
+      >ID: #<span>{{ invoice.id }}</span></span
+    >
+    <span class="due">
+      Due <span>{{ date }}</span>
+    </span>
+  </div>
+
+  <span class="client-name">{{ invoice.name }}</span>
+  <div class="main-info">
+    <span class="total">${{ invoice.total }}</span>
+    <div [ngClass]="{ paid: invoice.paid == true }" class="status">
+      <div class="status-text">
+        <span class="dot">&#8226;</span>{{ invoice.paid ? "Paid" : "Pending" }}
+      </div>
+    </div>
+  </div>
+</mat-card>

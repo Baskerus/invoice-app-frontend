@@ -1,6 +1,89 @@
 .invoice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: var(--primaryLight);
+
   width: clamp(12rem, 92vw, 36rem);
-  height: 4rem;
+  min-height: 4rem;
 
   margin-bottom: 1rem;
+}
+
+.invoice > :nth-child(2) {
+  margin: 0.5rem;
+}
+
+.id {
+  font-weight: 400;
+}
+.id > span {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.due {
+  margin-left: 0.6rem;
+}
+.due > span {
+  color: var(--primary);
+}
+
+.client-name {
+  color: var(--primary);
+}
+
+.total {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--primary);
+
+  width: 6rem;
+}
+
+.main-info {
+  display: flex;
+}
+
+.status {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 6rem;
+  height: 2rem;
+
+  color: var(--primary);
+  font-weight: bold;
+
+  border-radius: 0.3rem;
+}
+
+.status.paid {
+  background-color: rgba(0, 177, 0, 0.1);
+  color: rgb(0, 134, 0);
+  border: none;
+}
+
+.status-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot {
+  font-size: 1.4rem;
+  margin-right: 0.3rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .invoice {
+    flex-direction: column;
+    max-width: 400px;
+  }
 }
