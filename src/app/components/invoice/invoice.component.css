@@ -1,14 +1,26 @@
-.invoice {
+mat-expansion-panel {
+  height: fit-content;
+  margin: 1rem 0rem;
+}
+
+mat-expansion-panel-header {
+  height: fit-content;
+  min-height: 2rem;
+}
+
+.drawer {
+  display: flex;
+  width: clamp(8rem, 85vw, 38rem);
+}
+
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
+  width: 100%;
+  margin: 0.8rem 0rem;
   color: var(--primaryLight);
-
-  width: clamp(12rem, 92vw, 36rem);
-  min-height: 4rem;
-
-  margin-bottom: 1rem;
 }
 
 .invoice > :nth-child(2) {
@@ -81,9 +93,52 @@
   margin-right: 0.3rem;
 }
 
+.drawer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--primaryLight);
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+
+  height: 9rem;
+}
+
+.divide {
+  margin-bottom: 0.5rem;
+}
+
+.text-primary {
+  font-weight: 600;
+  color: var(--primary);
+}
+
 @media only screen and (max-width: 600px) {
-  .invoice {
+  .header {
     flex-direction: column;
-    max-width: 400px;
+  }
+  mat-expansion-panel {
+    width: 95vw;
+  }
+  .drawer {
+    flex-direction: column;
+    align-items: flex-start;
+
+    overflow-y: auto;
+    max-height: 15rem;
+  }
+  .drawer > div {
+    margin: 0.5rem 0rem;
+  }
+
+  .date-info {
+    display: none;
+  }
+
+  .client-name {
+    margin-bottom: 0.4rem;
   }
 }

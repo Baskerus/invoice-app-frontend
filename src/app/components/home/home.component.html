@@ -15,8 +15,11 @@
   </div>
 </div>
 
-<ul class="main">
-  <li *ngFor="let invoice of invoices">
-    <app-invoice [invoice]="invoice"></app-invoice>
-  </li>
-</ul>
+<div class="main">
+  <mat-accordion>
+    <app-invoice
+      *ngFor="let invoice of invoices"
+      [invoice]="invoice"
+    ></app-invoice>
+  </mat-accordion>
+</div>

@@ -1,20 +1,57 @@
-<mat-card class="invoice">
-  <div class="date-info">
-    <span class="id"
-      >ID: #<span>{{ invoice.id }}</span></span
-    >
-    <span class="due">
-      Due <span>{{ date }}</span>
-    </span>
-  </div>
+<mat-expansion-panel
+  [hideToggle]="!panelOpen"
+  #drawer
+  (opened)="panelOpen = true"
+  (closed)="panelOpen = false"
+>
+  <mat-expansion-panel-header>
+    <div class="header">
+      <div *ngIf="!panelOpen" class="date-info">
+        <span class="id"
+          >ID: #<span>{{ invoice.id }}</span></span
+        >
+        <span class="due">
+          Due <span>{{ date }}</span>
+        </span>
+      </div>
 
-  <span class="client-name">{{ invoice.name }}</span>
-  <div class="main-info">
-    <span class="total">${{ invoice.total }}</span>
-    <div [ngClass]="{ paid: invoice.paid == true }" class="status">
-      <div class="status-text">
-        <span class="dot">&#8226;</span>{{ invoice.paid ? "Paid" : "Pending" }}
+      <span *ngIf="!panelOpen" class="client-name">{{ invoice.name }}</span>
+      <div class="main-info">
+        <span class="total">${{ invoice.total }}</span>
+        <div [ngClass]="{ paid: invoice.paid == true }" class="status">
+          <div class="status-text">
+            <span class="dot">&#8226;</span
+            >{{ invoice.paid ? "Paid" : "Pending" }}
+          </div>
+        </div>
       </div>
     </div>
+  </mat-expansion-panel-header>
+
+  <div class="drawer">
+    <div class="col">
+      <span>Payment Due:</span>
+      <span class="text-primary divide">{{ date }}</span>
+
+      <span>Invoice description:</span>
+      <span class="text-primary">{{ invoice.description }}</span>
+    </div>
+
+    <div class="col">
+      <span class="divide">Bill to:</span>
+      <span class="text-primary">{{ invoice.name }}</span>
+      <span>{{ invoice.streetAddress }}</span>
+      <span>{{ invoice.city }}</span>
+      <span>{{ invoice.postCode }}</span>
+      <span>{{ invoice.country }}</span>
+    </div>
+
+    <div class="col">
+      <span class="divide">Sent to:</span>
+      <span class="divide text-primary">{{ invoice.email }}</span>
+      <span
+        >Invoice ID: #<span class="text-primary">{{ invoice.id }}</span></span
+      >
+    </div>
   </div>
-</mat-card>
+</mat-expansion-panel>

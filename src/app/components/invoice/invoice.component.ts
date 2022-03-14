@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class InvoiceComponent implements OnInit {
   @Input() invoice: any;
   date;
+  panelOpen: boolean = false;
 
   constructor() {}
 
