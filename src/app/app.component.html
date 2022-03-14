@@ -9,12 +9,11 @@
       color="primary"
       (click)="!sidebar.opened && showSidebar(true); sidebar.opened = true"
     >
-      <mat-icon id="open" aria-hidden="false" aria-label="add icon"
+      <mat-icon aria-hidden="false" aria-label="add icon"
         >add</mat-icon
       >
     </button>
+    <app-home></app-home>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-<div></div>

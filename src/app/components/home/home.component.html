@@ -1,1 +1,20 @@
-<p>THIS IS HOME</p>
+<div class="inner-header">
+  <div class="text-wrapper">
+    <span class="mat-title">Invoices</span>
+    <span class="mat-body-2"
+      >There are total of {{ invoices.length }} invoices.</span
+    >
+  </div>
+  <div>
+    <div matRipple class="add-btn">
+      <div class="add-icon">
+        <mat-icon aria-hidden="false" aria-label="add icon">add</mat-icon>
+      </div>
+      <span class="btn-text">New invoice</span>
+    </div>
+  </div>
+</div>
+
+<ul class="main">
+  <li *ngFor="let invoice of invoices"><app-invoice></app-invoice></li>
+</ul>

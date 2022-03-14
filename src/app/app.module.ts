@@ -11,9 +11,11 @@ import { MaterialModule } from './material/material.module';
 
 import { AddInvoiceComponent } from './components/add-invoice/add-invoice.component';
 import { HomeComponent } from './components/home/home.component';
+import { InvoiceService } from './service/invoice.service';
+import { InvoiceComponent } from './components/invoice/invoice.component';
 
 @NgModule({
-  declarations: [AppComponent, AddInvoiceComponent, HomeComponent],
+  declarations: [AppComponent, AddInvoiceComponent, HomeComponent, InvoiceComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -21,8 +23,9 @@ import { HomeComponent } from './components/home/home.component';
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [InvoiceService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

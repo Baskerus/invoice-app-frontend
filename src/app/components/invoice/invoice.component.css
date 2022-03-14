@@ -1,0 +1,6 @@
+.invoice {
+  width: clamp(12rem, 92vw, 36rem);
+  height: 4rem;
+
+  margin-bottom: 1rem;
+}

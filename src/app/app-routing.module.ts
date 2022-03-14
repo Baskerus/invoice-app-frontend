@@ -3,10 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddInvoiceComponent } from './components/add-invoice/add-invoice.component';
 import { HomeComponent } from './components/home/home.component';
 
-const routes: Routes = [
- /*  { path: '', component: HomeComponent }, */
-  { path: 'add', component: AddInvoiceComponent },
-];
+const routes: Routes = [{ path: 'add', component: AddInvoiceComponent }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
