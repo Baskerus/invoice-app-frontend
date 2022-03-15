@@ -1,5 +1,10 @@
 <mat-sidenav-container>
-  <mat-sidenav #sidebar [opened]="sidebarOpen">
+  <mat-sidenav
+    [fixedInViewport]="true"
+    #sidebar
+    [opened]="sidebarOpen"
+    mode="side"
+  >
     <app-add-invoice (closeEvent)="showSidebar(false)"></app-add-invoice>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -7,9 +12,14 @@
       class="add-btn"
       mat-fab
       color="primary"
-      (click)="!sidebar.opened && showSidebar(true); sidebar.opened = true"
+      (click)="!sidebarOpen ? showSidebar(true) : showSidebar(false)"
     >
-      <mat-icon aria-hidden="false" aria-label="add icon">add</mat-icon>
+      <mat-icon *ngIf="!sidebarOpen" aria-hidden="false" aria-label="add icon"
+        >add</mat-icon
+      >
+      <mat-icon *ngIf="sidebarOpen" aria-hidden="false" aria-label="add icon"
+        >close</mat-icon
+      >
     </button>
     <app-home (openEvent)="showSidebar(true); sidebar.opened = true"></app-home>
     <router-outlet></router-outlet>

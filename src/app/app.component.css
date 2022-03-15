@@ -3,6 +3,9 @@ mat-sidenav-container {
   height: 100vh;
 
   overflow: auto;
+
+  background-color: transparent;
+
 }
 
 mat-sidenav {
@@ -23,7 +26,6 @@ mat-sidenav-content {
 
   overflow: hidden;
 }
-
 
 .add-btn {
   display: flex;

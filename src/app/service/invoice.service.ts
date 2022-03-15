@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -11,6 +11,7 @@ export class InvoiceService {
   private apiServerUrl = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) {}
+
 
   public getInvoices(): Observable<Invoice[]> {
     return this.http.get<Invoice[]>(`${this.apiServerUrl}/invoices/all`);
@@ -26,6 +27,17 @@ export class InvoiceService {
   public deleteInvoice(invoiceId: number): Observable<void> {
     return this.http.delete<void>(
       `${this.apiServerUrl}/invoices/delete/${invoiceId}`
+    );
+  }
+
+  getInvoicesArray() {
+    this.getInvoices().subscribe(
+      (response: Invoice[]) => {
+       return response;
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error.message);
+      }
     );
   }
 }

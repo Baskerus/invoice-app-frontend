@@ -77,6 +77,10 @@ ul li:last-child {
   margin-right: 0.2rem;
 }
 
+.text-light {
+  color: var(--primaryLight);
+}
+
 @media only screen and (max-width: 600px) {
   .inner-header {
     justify-content: center;

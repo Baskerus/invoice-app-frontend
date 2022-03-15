@@ -7,6 +7,7 @@ import {
   Input,
 } from '@angular/core';
 
+
 @Component({
   selector: 'app-add-invoice',
   templateUrl: './add-invoice.component.html',
@@ -18,7 +19,9 @@ export class AddInvoiceComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+   
+  }
 
   emitCloseEvent(e) {
     this.closeEvent.emit(e);

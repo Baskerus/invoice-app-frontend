@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { SidebarService } from 'src/app/service/sidebar.service';
 
 @Component({
   selector: 'app-invoice',
@@ -10,7 +11,7 @@ export class InvoiceComponent implements OnInit {
   date;
   panelOpen: boolean = false;
 
-  constructor() {}
+  constructor(private sidebarService: SidebarService) {}
 
   ngOnInit(): void {
     this.date = new Date(this.invoice.due * 1000).toLocaleString('en-GB', {

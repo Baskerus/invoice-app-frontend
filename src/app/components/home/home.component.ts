@@ -1,7 +1,8 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Invoice } from 'src/app/Invoice';
 import { InvoiceService } from 'src/app/service/invoice.service';
+import { SidebarService } from 'src/app/service/sidebar.service';
 
 @Component({
   selector: 'app-home',
@@ -9,28 +10,28 @@ import { InvoiceService } from 'src/app/service/invoice.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  invoices: Invoice[];
   @Output() openEvent = new EventEmitter();
+  invoices: Invoice[];
+  sidebarOpen = this.sidebarService.getSidebarState();
 
-  constructor(private invoiceService: InvoiceService) {}
+  constructor(
+    private invoiceService: InvoiceService,
+    private sidebarService: SidebarService
+  ) {}
 
   ngOnInit(): void {
     this.getEmployees();
+    console.log('OnInit sidebar is: ', this.sidebarOpen);
   }
 
   emitOpenEvent(e) {
+    console.log('Sidebar is: ', this.sidebarOpen);
     this.openEvent.emit(e);
   }
 
-
   getEmployees() {
-    this.invoiceService.getInvoices().subscribe(
-      (response: Invoice[]) => {
-        this.invoices = response;
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error.message);
-      }
-    );
+    this.invoiceService.getInvoices().subscribe((response: Invoice[]) => {
+      this.invoices = response;
+    });
   }
 }
