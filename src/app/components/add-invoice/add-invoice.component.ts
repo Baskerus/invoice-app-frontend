@@ -19,6 +19,7 @@ import { InvoiceService } from 'src/app/service/invoice.service';
 export class AddInvoiceComponent implements OnInit {
   // Declares emission event
   @Output() closeEvent = new EventEmitter();
+  @Output() triggerRenderEvent = new EventEmitter();
 
   constructor(private invoiceService: InvoiceService) {}
 
@@ -27,6 +28,9 @@ export class AddInvoiceComponent implements OnInit {
   // Sends a wave later felt by the parent component
   emitCloseEvent(e) {
     this.closeEvent.emit(e);
+  }
+  emitTriggerRenderEvent() {
+    this.triggerRenderEvent.emit();
   }
 
   // Handles calling for POST -- and does some data conversions because I'm lazy
@@ -46,8 +50,10 @@ export class AddInvoiceComponent implements OnInit {
     this.invoiceService
       .addInvoice(invoiceToAdd)
       .subscribe((response: Invoice) => {
-        console.log('ADDED: ', response);
         this.invoiceService.getInvoices();
+        console.log('ADDED: ', response);
+        // Triggers render after everything is done
+        this.emitTriggerRenderEvent();
       });
   }
 }

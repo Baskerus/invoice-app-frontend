@@ -9,7 +9,7 @@ import { SidebarService } from './service/sidebar.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  invoices;
+  invoices: Invoice[];
   sidebarOpen: boolean;
 
   constructor(
@@ -18,11 +18,19 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.invoices = this.invoiceService.getInvoicesArray();
+    this.getInvoices();
   }
 
   showSidebar(option: boolean) {
     this.sidebarService.sidebarOpen = option;
     this.sidebarOpen = this.sidebarService.sidebarOpen;
+  }
+
+  getInvoices() {
+    this.invoiceService.getInvoices().subscribe((response: Invoice[]) => {
+      this.invoices = response;
+      console.log('TRIGGERED GET INVOICES');
+      console.log('Invocies are now: ', response);
+    });
   }
 }

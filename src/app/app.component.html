@@ -5,7 +5,10 @@
     [opened]="sidebarOpen"
     mode="side"
   >
-    <app-add-invoice (closeEvent)="showSidebar(false)"></app-add-invoice>
+    <app-add-invoice
+      (triggerRenderEvent)="getInvoices()"
+      (closeEvent)="showSidebar(false)"
+    ></app-add-invoice>
   </mat-sidenav>
   <mat-sidenav-content>
     <button
@@ -21,7 +24,10 @@
         >close</mat-icon
       >
     </button>
-    <app-home (openEvent)="showSidebar(true); sidebar.opened = true"></app-home>
+    <app-home
+      (openEvent)="showSidebar(true); sidebar.opened = true"
+      [invoices]="invoices"
+    ></app-home>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
