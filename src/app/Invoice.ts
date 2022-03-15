@@ -1,9 +1,8 @@
 export interface Invoice {
-  id: number;
   name: string;
   email: string;
-  streetAddress: string;
-  postCode: number;
+  address: string;
+  code: number;
   city: string;
   country: string;
   due: number;

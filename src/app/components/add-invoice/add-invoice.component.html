@@ -1,58 +1,83 @@
-<form class="form" (ngSubmit)="handleSubmit()">
+<form class="form" #addForm="ngForm" (ngSubmit)="onAddInvoice(addForm)">
   <div class="title-wrapper">Create invoice</div>
 
   <span class="title-sm mat-h4">Billing information</span>
 
   <mat-form-field class="form-field-lg" appearance="outline">
     <mat-label>Client Name</mat-label>
-    <input matInput type="text" required />
+    <input matInput name="name" ngModel type="text" required />
   </mat-form-field>
 
   <mat-form-field class="form-field-lg" appearance="outline">
     <mat-label>Client's Email</mat-label>
-    <input matInput type="email" value="test_email@test.org" required />
+    <input
+      matInput
+      name="email"
+      ngModel
+      type="email"
+      value="test_email@test.org"
+      required
+    />
   </mat-form-field>
 
   <mat-form-field class="form-field-lg" appearance="outline">
     <mat-label>Street Address</mat-label>
-    <input matInput type="text" value="66th Hell Cauldron's Way" />
+    <input
+      matInput
+      name="address"
+      ngModel
+      type="text"
+      value="66th Hell Cauldron's Way"
+    />
   </mat-form-field>
 
   <div class="address-wrapper">
     <mat-form-field class="form-field-sm" appearance="outline">
       <mat-label>City</mat-label>
-      <input matInput type="text" value="Boston" />
+      <input matInput name="city" ngModel type="text" value="Boston" />
     </mat-form-field>
 
     <mat-form-field class="form-field-sm" appearance="outline">
       <mat-label>Postal Code</mat-label>
       <input
         matInput
-        #postalCode
+        type="number"
+        name="code"
+        ngModel
+        #post_code
         maxlength="5"
         placeholder="Ex. 94105"
         value="94043"
       />
-      <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
+      <mat-hint align="end">{{ post_code.value.length }} / 5</mat-hint>
     </mat-form-field>
 
     <mat-form-field class="form-field-sm" appearance="outline">
       <mat-label>Country</mat-label>
-      <input matInput type="text" value="MA" />
+      <input matInput name="country" ngModel type="text" value="MA" />
     </mat-form-field>
   </div>
 
   <mat-form-field class="form-field-lg" appearance="outline">
     <mat-label>Project description</mat-label>
-    <textarea matInput>
+    <textarea matInput name="description" ngModel>
       Some detailed project description. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae, maxime!</textarea
     >
   </mat-form-field>
 
+  <mat-checkbox
+    name="paid"
+    ngModel
+    class="checkbox"
+    type="checkbox"
+    color="primary"
+    >Paid?</mat-checkbox
+  >
+
   <div class="input-wrapper">
     <mat-form-field class="date-input" appearance="outline">
       <mat-label>Choose a due date</mat-label>
-      <input matInput [matDatepicker]="picker" value="2014-02-09" required />
+      <input matInput name="due" ngModel [matDatepicker]="picker" required />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
@@ -64,9 +89,10 @@
         ></mat-label
       >
       <mat-label>Bill Total</mat-label>
-      <input matInput required
+      <input matInput type="number" name="total" ngModel required
     /></mat-form-field>
   </div>
+
   <div class="btn-group">
     <button
       type="button"
@@ -79,10 +105,12 @@
     </button>
     <button
       mat-raised-button
+      id="submitBtn"
       type="submit"
       class="btn-lg"
       color="primary"
       (click)="emitCloseEvent($event)"
+      [disabled]="addForm.invalid"
     >
       <mat-icon class="icon" aria-hidden="false" aria-label="add icon"
         >add</mat-icon

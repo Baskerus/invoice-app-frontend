@@ -15,7 +15,12 @@ import { InvoiceService } from './service/invoice.service';
 import { InvoiceComponent } from './components/invoice/invoice.component';
 
 @NgModule({
-  declarations: [AppComponent, AddInvoiceComponent, HomeComponent, InvoiceComponent],
+  declarations: [
+    AppComponent,
+    AddInvoiceComponent,
+    HomeComponent,
+    InvoiceComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -24,6 +29,7 @@ import { InvoiceComponent } from './components/invoice/invoice.component';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [InvoiceService],
   bootstrap: [AppComponent],

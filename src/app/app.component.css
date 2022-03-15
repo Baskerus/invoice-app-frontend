@@ -11,7 +11,7 @@ mat-sidenav-container {
 mat-sidenav {
   position: absolute;
   width: clamp(0px, 100%, 30rem);
-  height: clamp(25rem, 100%, 48rem);
+  height: clamp(25rem, 100%, 50rem);
 
   border: 1px solid lightgray;
   border-radius: 0 0rem 0.8rem 0;

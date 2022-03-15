@@ -6,7 +6,9 @@ import {
   EventEmitter,
   Input,
 } from '@angular/core';
-
+import { NgForm } from '@angular/forms';
+import { Invoice } from 'src/app/Invoice';
+import { InvoiceService } from 'src/app/service/invoice.service';
 
 @Component({
   selector: 'app-add-invoice',
@@ -15,19 +17,37 @@ import {
   encapsulation: ViewEncapsulation.None,
 })
 export class AddInvoiceComponent implements OnInit {
+  // Declares emission event
   @Output() closeEvent = new EventEmitter();
 
-  constructor() {}
+  constructor(private invoiceService: InvoiceService) {}
 
-  ngOnInit(): void {
-   
-  }
+  ngOnInit(): void {}
 
+  // Sends a wave later felt by the parent component
   emitCloseEvent(e) {
     this.closeEvent.emit(e);
   }
 
-  handleSubmit() {
-    console.log('Submitted form.');
+  // Handles calling for POST -- and does some data conversions because I'm lazy
+  onAddInvoice(addForm: NgForm) {
+    let invoiceToAdd = addForm.value;
+
+    // Converts date from picker to epoch
+    invoiceToAdd.due = parseInt(
+      (invoiceToAdd.due / 1000).toLocaleString().replace(/,/g, '')
+    );
+
+    // Prevents unchecked checkbox from sending Null
+    !invoiceToAdd.paid ? (invoiceToAdd.paid = false) : '';
+
+    // Sends the invoice (in the form of form.value (JSON object)) as addInvoice parameter
+    console.log('ADDING: ', invoiceToAdd);
+    this.invoiceService
+      .addInvoice(invoiceToAdd)
+      .subscribe((response: Invoice) => {
+        console.log('ADDED: ', response);
+        this.invoiceService.getInvoices();
+      });
   }
 }
