@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
   }
 
   emitOpenEvent(e) {
-    console.log('Sidebar is: ', this.sidebarOpen);
     this.openEvent.emit(e);
   }
 
