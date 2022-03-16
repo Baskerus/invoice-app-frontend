@@ -119,8 +119,8 @@ mat-expansion-panel-header {
 .easeUp {
   animation: fadeUp 200ms ease forwards 150ms;
 }
-.easeRight {
-  animation: fadeRight 400ms ease;
+.easeLeft {
+  animation: fadeLeft 400ms ease;
 }
 .col {
   display: flex;
@@ -180,10 +180,10 @@ mat-expansion-panel-header {
     transform: translateY(0);
   }
 }
-@keyframes fadeRight {
+@keyframes fadeLeft {
   from {
     opacity: 0;
-    transform: translateX(-1rem);
+    transform: translateX(1rem);
   }
   to {
     opacity: 1;

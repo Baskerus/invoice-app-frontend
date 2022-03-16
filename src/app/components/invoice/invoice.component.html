@@ -16,7 +16,7 @@
       </div>
 
       <span *ngIf="!panelOpen" class="client-name">{{ invoice.name }}</span>
-      <div class="main-info" [ngClass]="{ easeRight: panelOpen }">
+      <div class="main-info" [ngClass]="{ easeLeft: panelOpen }">
         <span class="total" [ngClass]="{ 'text-primary-lg': panelOpen }"
           >${{ floatTotal(invoice.total) }}</span
         >

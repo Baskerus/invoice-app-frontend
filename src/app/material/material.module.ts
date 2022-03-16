@@ -14,6 +14,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatRippleModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 const material = [
   MatSidenavModule,
@@ -31,6 +32,7 @@ const material = [
   MatRippleModule,
   MatCheckboxModule,
   MatDialogModule,
+  MatToolbarModule,
 ];
 
 @NgModule({
