@@ -13,9 +13,7 @@ export class InvoiceComponent implements OnInit {
   panelOpen: boolean = false;
   isExpanded: boolean;
 
-  constructor(
-    private invoiceService: InvoiceService
-  ) {}
+  constructor(private invoiceService: InvoiceService) {}
 
   ngOnInit(): void {
     this.date = new Date(this.invoice.due * 1000).toLocaleString('en-GB', {
@@ -23,7 +21,9 @@ export class InvoiceComponent implements OnInit {
     });
   }
 
-  emitTriggerRender() {}
+  floatTotal(total) {
+    return parseFloat(total).toFixed(2);
+  }
 
   handleDelete() {
     this.invoiceService

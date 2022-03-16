@@ -26,6 +26,8 @@ ul li:last-child {
   align-items: center;
   justify-content: space-between;
 
+  min-width: 28rem;
+
   padding: 0 1.5rem;
 }
 

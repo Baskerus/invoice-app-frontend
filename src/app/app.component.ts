@@ -9,7 +9,7 @@ import { SidebarService } from './service/sidebar.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  invoices: Invoice[];
+  invoices: Invoice[] = [];
   sidebarOpen: boolean;
 
   constructor(
@@ -31,6 +31,4 @@ export class AppComponent implements OnInit {
       this.invoices = response;
     });
   }
-
- 
 }

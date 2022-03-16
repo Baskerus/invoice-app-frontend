@@ -1,8 +1,11 @@
 <div class="inner-header">
   <div class="text-wrapper">
     <span class="mat-title">Invoices</span>
-    <span *ngIf="invoices" class="mat-body-2 text-light"
+    <span *ngIf="invoices.length !== 0" class="mat-body-2 text-light"
       >There are total of {{ invoices.length }} invoices.</span
+    >
+    <span *ngIf="invoices.length === 0" class="mat-body-2 text-light"
+      >There are no invoices to show.</span
     >
   </div>
   <div>

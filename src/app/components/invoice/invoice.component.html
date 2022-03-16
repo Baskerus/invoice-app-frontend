@@ -19,7 +19,7 @@
 
       <span *ngIf="!panelOpen" class="client-name">{{ invoice.name }}</span>
       <div class="main-info">
-        <span class="total">${{ invoice.total }}</span>
+        <span class="total">${{ floatTotal(invoice.total) }}</span>
         <div [ngClass]="{ paid: invoice.paid == true }" class="status">
           <div class="status-text">
             <span class="dot">&#8226;</span
