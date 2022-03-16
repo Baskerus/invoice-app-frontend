@@ -51,7 +51,7 @@ mat-expansion-panel-header {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  
+
   font-size: 1.1rem;
   font-weight: 500;
   color: var(--primary);
@@ -102,6 +102,19 @@ mat-expansion-panel-header {
   color: var(--primaryLight);
 }
 
+.delete-button {
+  display: flex;
+  flex-direction: row-reverse;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  margin: 1rem;
+}
+.ease {
+  animation: fade 200ms ease;
+}
+
 .col {
   display: flex;
   flex-direction: column;
@@ -114,8 +127,16 @@ mat-expansion-panel-header {
 }
 
 .text-primary {
- 
   color: var(--primary);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @media only screen and (max-width: 600px) {

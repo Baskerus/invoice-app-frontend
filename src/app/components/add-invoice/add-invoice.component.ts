@@ -46,7 +46,6 @@ export class AddInvoiceComponent implements OnInit {
     !invoiceToAdd.paid ? (invoiceToAdd.paid = false) : '';
 
     // Sends the invoice (in the form of form.value (JSON object)) as addInvoice parameter
-    console.log('ADDING: ', invoiceToAdd);
     this.invoiceService
       .addInvoice(invoiceToAdd)
       .subscribe((response: Invoice) => {

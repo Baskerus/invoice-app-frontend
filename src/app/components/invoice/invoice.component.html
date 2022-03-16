@@ -1,4 +1,6 @@
 <mat-expansion-panel
+  (afterExpand)="isExpanded = true"
+  (closed)="isExpanded = false"
   [hideToggle]="!panelOpen"
   #drawer
   (opened)="panelOpen = true"
@@ -52,6 +54,26 @@
       <span
         >Invoice ID: #<span class="text-primary">{{ invoice.id }}</span></span
       >
+    </div>
+    <div class="delete-button">
+      <button *ngIf="isExpanded" mat-button (click)="handleDelete()">
+        <mat-icon
+          [ngClass]="{ ease: drawer.opened }"
+          color="primary"
+          aria-hidden="false"
+          aria-label="add icon"
+          >delete_outline</mat-icon
+        >
+      </button>
+      <button *ngIf="isExpanded" mat-button>
+        <mat-icon
+          [ngClass]="{ ease: drawer.opened }"
+          color="primary"
+          aria-hidden="false"
+          aria-label="add icon"
+          >edit</mat-icon
+        >
+      </button>
     </div>
   </div>
 </mat-expansion-panel>

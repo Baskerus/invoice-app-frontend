@@ -12,7 +12,6 @@ export class InvoiceService {
 
   constructor(private http: HttpClient) {}
 
-
   public getInvoices(): Observable<Invoice[]> {
     return this.http.get<Invoice[]>(`${this.apiServerUrl}/invoices/all`);
   }
@@ -24,16 +23,15 @@ export class InvoiceService {
     );
   }
 
-  public deleteInvoice(invoiceId: number): Observable<void> {
-    return this.http.delete<void>(
-      `${this.apiServerUrl}/invoices/delete/${invoiceId}`
-    );
+  public deleteInvoice(id: number): Observable<void> {
+    console.log(`${this.apiServerUrl}/invoices/delete/${id}`);
+    return this.http.delete<void>(`${this.apiServerUrl}/invoices/delete/${id}`);
   }
 
   getInvoicesArray() {
     this.getInvoices().subscribe(
       (response: Invoice[]) => {
-       return response;
+        return response;
       },
       (error: HttpErrorResponse) => {
         console.log(error.message);
