@@ -14,7 +14,6 @@ export class InvoiceComponent implements OnInit {
   @Input() invoice: any;
   date: string;
   panelOpen: boolean = false;
-  isExpanded: boolean;
 
   constructor(
     private invoiceService: InvoiceService,

@@ -1,12 +1,10 @@
 <mat-expansion-panel
-  (afterExpand)="isExpanded = true"
-  (closed)="isExpanded = false"
-  [hideToggle]="!panelOpen"
   #drawer
+  [hideToggle]="!panelOpen"
   (opened)="panelOpen = true"
   (closed)="panelOpen = false"
 >
-  <mat-expansion-panel-header>
+  <mat-expansion-panel-header expandedHeight="5rem">
     <div class="header">
       <div *ngIf="!panelOpen" class="date-info">
         <span class="id"
@@ -18,8 +16,10 @@
       </div>
 
       <span *ngIf="!panelOpen" class="client-name">{{ invoice.name }}</span>
-      <div class="main-info">
-        <span class="total">${{ floatTotal(invoice.total) }}</span>
+      <div class="main-info" [ngClass]="{ easeRight: panelOpen }">
+        <span class="total" [ngClass]="{ 'text-primary-lg': panelOpen }"
+          >${{ floatTotal(invoice.total) }}</span
+        >
         <div [ngClass]="{ paid: invoice.paid == true }" class="status">
           <div class="status-text">
             <span class="dot">&#8226;</span
@@ -56,21 +56,24 @@
       >
     </div>
     <div class="delete-button">
-      <button *ngIf="isExpanded" mat-button (click)="openDialog(drawer)">
-        <mat-icon
-          [ngClass]="{ ease: drawer.opened }"
-          color="primary"
-          aria-hidden="false"
-          aria-label="add icon"
+      <button
+        *ngIf="panelOpen"
+        mat-button
+        [ngClass]="{ easeUp: drawer.opened }"
+        class="invoice-btn"
+        (click)="openDialog(drawer)"
+      >
+        <mat-icon color="primary" aria-hidden="false" aria-label="add icon"
           >delete_outline</mat-icon
         >
       </button>
-      <button *ngIf="isExpanded" mat-button>
-        <mat-icon
-          [ngClass]="{ ease: drawer.opened }"
-          color="primary"
-          aria-hidden="false"
-          aria-label="add icon"
+      <button
+        *ngIf="panelOpen"
+        [ngClass]="{ easeUp: panelOpen }"
+        class="invoice-btn"
+        mat-button
+      >
+        <mat-icon color="primary" aria-hidden="false" aria-label="add icon"
           >edit</mat-icon
         >
       </button>
