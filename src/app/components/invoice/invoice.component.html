@@ -4,7 +4,7 @@
   (opened)="panelOpen = true"
   (closed)="panelOpen = false"
 >
-  <mat-expansion-panel-header expandedHeight="5rem">
+  <mat-expansion-panel-header expandedHeight="4.6rem">
     <div class="header">
       <div *ngIf="!panelOpen" class="date-info">
         <span class="id"
@@ -41,7 +41,7 @@
 
     <div class="col">
       <span class="divide">Bill to:</span>
-      <span class="text-primary">{{ invoice.name }}</span>
+      <span class="text-primary-md">{{ invoice.name }}</span>
       <span>{{ invoice.address }}</span>
       <span>{{ invoice.city }}</span>
       <span>{{ invoice.code }}</span>

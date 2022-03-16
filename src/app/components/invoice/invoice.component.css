@@ -110,7 +110,7 @@ mat-expansion-panel-header {
   opacity: 0;
 }
 .desc-field {
-  max-width: 18rem;
+  max-width: 15rem;
   max-height: 5rem;
 
   overflow-y: auto;
@@ -133,12 +133,19 @@ mat-expansion-panel-header {
 }
 .text-primary {
   color: var(--primary);
+  font-weight: 500;
 }
 .text-primary-lg {
   color: var(--primary);
   font-size: 1.4rem;
   font-weight: 600;
   margin-right: 2rem;
+}
+.text-primary-md {
+  color: var(--primary);
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
 }
 
 @media only screen and (max-width: 600px) {
@@ -183,7 +190,7 @@ mat-expansion-panel-header {
 @keyframes fadeLeft {
   from {
     opacity: 0;
-    transform: translateX(1rem);
+    transform: translateX(0.8rem);
   }
   to {
     opacity: 1;
