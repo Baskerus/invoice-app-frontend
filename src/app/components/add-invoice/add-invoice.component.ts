@@ -50,8 +50,7 @@ export class AddInvoiceComponent implements OnInit {
       .addInvoice(invoiceToAdd)
       .subscribe((response: Invoice) => {
         this.invoiceService.getInvoices();
-        console.log('ADDED: ', response);
-        // Triggers render after everything is done
+        // Triggers render after adding
         this.emitTriggerRenderEvent();
       });
   }

@@ -18,6 +18,7 @@
 <div class="main">
   <mat-accordion>
     <app-invoice
+      (triggerRender)="emitTriggerRender()"
       *ngFor="let invoice of invoices"
       [invoice]="invoice"
     ></app-invoice>

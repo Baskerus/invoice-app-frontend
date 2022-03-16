@@ -25,6 +25,7 @@
       >
     </button>
     <app-home
+      (triggerRender)="getInvoices()"
       (openEvent)="showSidebar(true); sidebar.opened = true"
       [invoices]="invoices"
     ></app-home>

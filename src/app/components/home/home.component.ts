@@ -9,16 +9,19 @@ import { SidebarService } from 'src/app/service/sidebar.service';
 })
 export class HomeComponent implements OnInit {
   @Output() openEvent = new EventEmitter();
+  @Output() triggerRender = new EventEmitter();
   @Input() invoices: Invoice[];
   sidebarOpen = this.sidebarService.getSidebarState();
 
   constructor(private sidebarService: SidebarService) {}
 
-  ngOnInit(): void {
-    console.log('OnInit sidebar is: ', this.sidebarOpen);
-  }
+  ngOnInit(): void {}
 
   emitOpenEvent(e) {
     this.openEvent.emit(e);
+  }
+
+  emitTriggerRender() {
+    this.triggerRender.emit();
   }
 }

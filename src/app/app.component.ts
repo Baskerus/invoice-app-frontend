@@ -29,8 +29,8 @@ export class AppComponent implements OnInit {
   getInvoices() {
     this.invoiceService.getInvoices().subscribe((response: Invoice[]) => {
       this.invoices = response;
-      console.log('TRIGGERED GET INVOICES');
-      console.log('Invocies are now: ', response);
     });
   }
+
+ 
 }

@@ -56,7 +56,11 @@
       >
     </div>
     <div class="delete-button">
-      <button *ngIf="isExpanded" mat-button (click)="handleDelete()">
+      <button
+        *ngIf="isExpanded"
+        mat-button
+        (click)="drawer.close(); handleDelete()"
+      >
         <mat-icon
           [ngClass]="{ ease: drawer.opened }"
           color="primary"

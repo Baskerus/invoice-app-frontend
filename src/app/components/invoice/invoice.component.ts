@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { InvoiceService } from 'src/app/service/invoice.service';
-import { SidebarService } from 'src/app/service/sidebar.service';
 
 @Component({
   selector: 'app-invoice',
@@ -8,13 +7,13 @@ import { SidebarService } from 'src/app/service/sidebar.service';
   styleUrls: ['./invoice.component.css'],
 })
 export class InvoiceComponent implements OnInit {
+  @Output() triggerRender = new EventEmitter();
   @Input() invoice: any;
   date: string;
   panelOpen: boolean = false;
   isExpanded: boolean;
 
   constructor(
-    private sidebarService: SidebarService,
     private invoiceService: InvoiceService
   ) {}
 
@@ -24,7 +23,16 @@ export class InvoiceComponent implements OnInit {
     });
   }
 
+  emitTriggerRender() {}
+
   handleDelete() {
-    this.invoiceService.deleteInvoice(this.invoice.id);
+    this.invoiceService
+      .deleteInvoice(this.invoice.id)
+      .subscribe((resoponse) => {
+        // Timeout let's the contracting animation finish
+        setTimeout(() => {
+          this.triggerRender.emit();
+        }, 500);
+      });
   }
 }

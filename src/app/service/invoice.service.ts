@@ -24,24 +24,6 @@ export class InvoiceService {
   }
 
   public deleteInvoice(id: number) {
-    this.http.delete(`${this.apiServerUrl}/invoices/delete/${id}`).subscribe(
-      (data) => {
-        console.log('Delete successfull.');
-      },
-      (error: HttpErrorResponse) => {
-        console.log('Error deleting invoice.', error.message);
-      }
-    );
-  }
-
-  getInvoicesArray() {
-    this.getInvoices().subscribe(
-      (response: Invoice[]) => {
-        return response;
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error.message);
-      }
-    );
+    return this.http.delete(`${this.apiServerUrl}/invoices/delete/${id}`);
   }
 }
