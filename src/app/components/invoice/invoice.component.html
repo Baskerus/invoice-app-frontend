@@ -36,7 +36,7 @@
       <span class="text-primary divide">{{ date }}</span>
 
       <span>Invoice description:</span>
-      <span class="text-primary">{{ invoice.description }}</span>
+      <span class="text-primary desc-field">{{ invoice.description }}</span>
     </div>
 
     <div class="col">
@@ -56,11 +56,7 @@
       >
     </div>
     <div class="delete-button">
-      <button
-        *ngIf="isExpanded"
-        mat-button
-        (click)="drawer.close(); handleDelete()"
-      >
+      <button *ngIf="isExpanded" mat-button (click)="openDialog(drawer)">
         <mat-icon
           [ngClass]="{ ease: drawer.opened }"
           color="primary"

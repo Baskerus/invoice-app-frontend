@@ -1,5 +1,8 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatDrawer } from '@angular/material/sidenav';
 import { InvoiceService } from 'src/app/service/invoice.service';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-invoice',
@@ -13,16 +16,15 @@ export class InvoiceComponent implements OnInit {
   panelOpen: boolean = false;
   isExpanded: boolean;
 
-  constructor(private invoiceService: InvoiceService) {}
+  constructor(
+    private invoiceService: InvoiceService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.date = new Date(this.invoice.due * 1000).toLocaleString('en-GB', {
       dateStyle: 'short',
     });
-  }
-
-  floatTotal(total) {
-    return parseFloat(total).toFixed(2);
   }
 
   handleDelete() {
@@ -34,5 +36,22 @@ export class InvoiceComponent implements OnInit {
           this.triggerRender.emit();
         }, 500);
       });
+  }
+
+  floatTotal(total) {
+    return parseFloat(total).toFixed(2);
+  }
+
+  openDialog(drawer) {
+    let dialogRef = this.dialog.open(DialogComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === true) {
+        this.handleDelete();
+        drawer.close();
+      } else {
+        return;
+      }
+    });
   }
 }

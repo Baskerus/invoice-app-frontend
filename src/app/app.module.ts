@@ -13,6 +13,7 @@ import { AddInvoiceComponent } from './components/add-invoice/add-invoice.compon
 import { HomeComponent } from './components/home/home.component';
 import { InvoiceService } from './service/invoice.service';
 import { InvoiceComponent } from './components/invoice/invoice.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { InvoiceComponent } from './components/invoice/invoice.component';
     AddInvoiceComponent,
     HomeComponent,
     InvoiceComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,

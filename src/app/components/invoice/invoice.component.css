@@ -58,11 +58,9 @@ mat-expansion-panel-header {
 
   width: 6rem;
 }
-
 .main-info {
   display: flex;
 }
-
 .status {
   align-self: flex-end;
   display: flex;
@@ -77,31 +75,26 @@ mat-expansion-panel-header {
 
   border-radius: 0.3rem;
 }
-
 .status.paid {
   background-color: rgba(0, 177, 0, 0.1);
   color: rgb(0, 134, 0);
   border: none;
 }
-
 .status-text {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .dot {
   font-size: 1.4rem;
   margin-right: 0.3rem;
 }
-
 .drawer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: var(--primaryLight);
 }
-
 .delete-button {
   display: flex;
   flex-direction: row-reverse;
@@ -111,21 +104,25 @@ mat-expansion-panel-header {
 
   margin: 1rem;
 }
+.desc-field {
+  max-width: 18rem;
+  max-height: 5rem;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 .ease {
   animation: fade 200ms ease;
 }
-
 .col {
   display: flex;
   flex-direction: column;
 
   height: 9rem;
 }
-
 .divide {
   margin-bottom: 0.5rem;
 }
-
 .text-primary {
   color: var(--primary);
 }
