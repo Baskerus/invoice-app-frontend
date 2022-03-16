@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   @Output() openEvent = new EventEmitter();
   @Output() triggerRender = new EventEmitter();
   @Input() invoices: Invoice[];
+  total;
   sidebarOpen = this.sidebarService.getSidebarState();
 
   constructor(private sidebarService: SidebarService) {}

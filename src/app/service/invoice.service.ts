@@ -9,6 +9,7 @@ import { Invoice } from '../Invoice';
 })
 export class InvoiceService {
   private apiServerUrl = environment.apiBaseUrl;
+  total = 0;
 
   constructor(private http: HttpClient) {}
 

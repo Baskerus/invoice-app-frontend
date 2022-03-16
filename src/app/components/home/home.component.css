@@ -26,6 +26,8 @@ ul li:last-child {
   align-items: center;
   justify-content: space-between;
 
+  color: var(--primary);
+
   min-width: 28rem;
 
   padding: 0 1.5rem;
@@ -69,6 +71,11 @@ ul li:last-child {
   border-radius: 50%;
   height: 1.8rem;
   width: 1.8rem;
+}
+
+.text-bold {
+  color: var(--primary);
+  font-weight: 600;
 }
 
 .btn-text {

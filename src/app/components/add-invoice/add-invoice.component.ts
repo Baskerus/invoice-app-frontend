@@ -17,7 +17,6 @@ import { InvoiceService } from 'src/app/service/invoice.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class AddInvoiceComponent implements OnInit {
-  // Declares emission event
   @Output() closeEvent = new EventEmitter();
   @Output() triggerRenderEvent = new EventEmitter();
 
@@ -25,7 +24,6 @@ export class AddInvoiceComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // Sends a wave later felt by the parent component
   emitCloseEvent(e) {
     this.closeEvent.emit(e);
   }
@@ -33,7 +31,6 @@ export class AddInvoiceComponent implements OnInit {
     this.triggerRenderEvent.emit();
   }
 
-  // Handles calling for POST -- and does some data conversions because I'm lazy
   onAddInvoice(addForm: NgForm) {
     let invoiceToAdd = addForm.value;
 

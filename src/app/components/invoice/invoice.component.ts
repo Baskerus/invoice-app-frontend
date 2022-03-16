@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatDrawer } from '@angular/material/sidenav';
 import { InvoiceService } from 'src/app/service/invoice.service';
 import { DialogComponent } from '../dialog/dialog.component';
 
@@ -33,7 +32,7 @@ export class InvoiceComponent implements OnInit {
         // Timeout let's the contracting animation finish
         setTimeout(() => {
           this.triggerRender.emit();
-        }, 500);
+        }, 400);
       });
   }
 

@@ -11,6 +11,7 @@ import { SidebarService } from './service/sidebar.service';
 export class AppComponent implements OnInit {
   invoices: Invoice[] = [];
   sidebarOpen: boolean;
+  total = this.invoiceService.total;
 
   constructor(
     private invoiceService: InvoiceService,
@@ -19,6 +20,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.getInvoices();
+    this.invoiceService.total = 0;
   }
 
   showSidebar(option: boolean) {
@@ -28,7 +30,13 @@ export class AppComponent implements OnInit {
 
   getInvoices() {
     this.invoiceService.getInvoices().subscribe((response: Invoice[]) => {
-      this.invoices = response;
+      this.invoices = response; // Populates invoices arr with response (arr)
+      this.invoiceService.total = 0; // Resets total before calculation
+      response.forEach((res) => {
+        // Iterates through the array and adds value to the total
+        this.invoiceService.total = this.invoiceService.total + res.total;
+        this.total = this.invoiceService.total;
+      });
     });
   }
 }
