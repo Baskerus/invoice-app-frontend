@@ -28,8 +28,10 @@
       (triggerRender)="getInvoices()"
       (openEvent)="showSidebar(true); sidebar.opened = true"
       [invoices]="invoices"
+      [total]="total"
+      [paidTotal]="paidTotal"
+      [pendingTotal]="pendingTotal"
     ></app-home>
     <router-outlet></router-outlet>
-    <span>--- {{ total }} ---</span>
   </mat-sidenav-content>
 </mat-sidenav-container>

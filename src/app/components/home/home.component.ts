@@ -11,7 +11,10 @@ export class HomeComponent implements OnInit {
   @Output() openEvent = new EventEmitter();
   @Output() triggerRender = new EventEmitter();
   @Input() invoices: Invoice[];
-  total;
+  @Input() total;
+  @Input() paidTotal;
+  @Input() pendingTotal;
+
   sidebarOpen = this.sidebarService.getSidebarState();
 
   constructor(private sidebarService: SidebarService) {}
