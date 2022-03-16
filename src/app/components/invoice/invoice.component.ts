@@ -25,13 +25,6 @@ export class InvoiceComponent implements OnInit {
   }
 
   handleDelete() {
-    this.invoiceService.deleteInvoice(this.invoice.id).subscribe(
-      (res) => {
-        console.log(res);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    this.invoiceService.deleteInvoice(this.invoice.id);
   }
 }
