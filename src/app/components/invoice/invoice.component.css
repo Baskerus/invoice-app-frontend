@@ -6,6 +6,9 @@ mat-expansion-panel {
 mat-expansion-panel-header {
   height: fit-content;
 }
+.mat-ripple {
+  display: none;
+}
 
 .drawer {
   display: flex;
@@ -14,8 +17,13 @@ mat-expansion-panel-header {
 
   width: clamp(8rem, 85vw, 38rem);
   margin-bottom: 1.5rem;
+  padding: 0 0.6rem;
 
   color: var(--primaryLight);
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .header {
@@ -44,6 +52,14 @@ mat-expansion-panel-header {
   width: 5rem;
 }
 
+.description {
+  overflow-y: auto;
+  resize: none;
+
+  width: 12rem;
+  height: 6rem;
+}
+
 .status {
   align-self: flex-end;
   display: flex;
@@ -57,6 +73,7 @@ mat-expansion-panel-header {
   font-weight: bold;
 
   border-radius: 0.3rem;
+  user-select: none;
 }
 .status.paid {
   color: rgb(0, 134, 0);
@@ -80,6 +97,7 @@ mat-expansion-panel-header {
 }
 .invoice-btn {
   opacity: 0;
+  padding: 0 0.7rem;
 }
 .desc-field {
   max-width: 15rem;
@@ -88,12 +106,6 @@ mat-expansion-panel-header {
   overflow-y: auto;
   overflow-x: hidden;
 }
-.easeUp {
-  animation: fadeUp 200ms ease forwards 150ms;
-}
-.easeLeft {
-  animation: fadeLeft 400ms ease;
-}
 .col {
   display: flex;
   flex-direction: column;
@@ -101,14 +113,77 @@ mat-expansion-panel-header {
   height: 9rem;
 }
 
+.input-mod {
+  outline: none;
+  border: none;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  transition: all 200ms ease;
+
+  padding: 2px;
+}
+.total-input {
+  width: 8rem;
+}
+.total-input::before {
+  position: absolute;
+  left: -1.5rem;
+  content: "asda";
+}
+.input-wrapper:focus-within::before {
+  position: absolute;
+  left: -1.5rem;
+  content: "\270E";
+  animation: fadeLeft 200ms;
+  font-size: 1rem;
+}
+.input-wrapper:hover::before {
+  position: absolute;
+  left: -1.5rem;
+  content: "\270E";
+  animation: fadeLeft 200ms;
+  font-size: 1rem;
+}
+.relative {
+  position: relative;
+}
+.hovered {
+  position: relative;
+  cursor: text;
+}
+.fake-header {
+  position: absolute;
+  top: 1.3rem;
+}
+.fake-header span,
+div {
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+}
+
+.easeUp {
+  animation: fadeUp 200ms ease forwards 150ms;
+}
+.easeLeft {
+  animation: fadeLeft 400ms ease;
+}
+.fadeOut {
+  animation: fadeOut 200ms ease;
+}
+
 @media only screen and (max-width: 600px) {
+  mat-expansion-panel {
+    width: 95vw;
+    width: clamp(4rem, 95vw, 22rem);
+  }
   .header {
     flex-direction: column;
     height: auto;
   }
-  mat-expansion-panel {
-    width: 95vw;
-    width: clamp(4rem, 95vw, 22rem);
+  .total-input {
+    width: 6.3rem;
+    margin-right: 0;
   }
   .drawer {
     flex-direction: column;
@@ -144,5 +219,13 @@ mat-expansion-panel-header {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
