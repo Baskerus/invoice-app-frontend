@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Invoice } from './Interfaces/Invoice';
+import { Invoice } from './interfaces/Invoice';
 import { InvoiceService } from './service/invoice.service';
 import { SidebarService } from './service/sidebar.service';
 

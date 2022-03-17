@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Invoice } from 'src/app/Interfaces/Invoice';
+import { Invoice } from 'src/app/interfaces/Invoice';
 import { SidebarService } from 'src/app/service/sidebar.service';
 
 @Component({
