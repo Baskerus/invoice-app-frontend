@@ -9,6 +9,11 @@
   margin-bottom: 0.5rem;
 }
 
+.text-light {
+  color: var(--primaryLight);
+  font-size: 14px;
+  font-weight: 400;
+}
 .text-primary-thin {
   color: var(--primary);
   font-weight: 400;
@@ -16,6 +21,7 @@
 .text-primary {
   color: var(--primary);
   font-weight: 500;
+  font-size: 14px;
 }
 .text-primary-md {
   color: var(--primary);
@@ -44,6 +50,13 @@
 }
 .mr {
   margin-right: 1rem;
+}
+
+.pointer {
+  cursor: pointer;
+}
+.hidden {
+  display: none;
 }
 
 .btn-lg {

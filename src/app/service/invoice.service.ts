@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -22,6 +22,14 @@ export class InvoiceService {
   public addInvoice(invoice: Invoice): Observable<Invoice> {
     return this.http.post<Invoice>(
       `${this.apiServerUrl}/invoices/add`,
+      invoice
+    );
+  }
+
+  public updateInvoice(invoice: Invoice): Observable<Invoice> {
+    console.log('Trying update');
+    return this.http.put<Invoice>(
+      `${this.apiServerUrl}/invoices/update`,
       invoice
     );
   }
