@@ -9,7 +9,13 @@ mat-expansion-panel-header {
 
 .drawer {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   width: clamp(8rem, 85vw, 38rem);
+  margin-bottom: 1.5rem;
+
+  color: var(--primaryLight);
 }
 
 .header {
@@ -27,40 +33,17 @@ mat-expansion-panel-header {
 .invoice > :nth-child(2) {
   margin: 0.5rem;
 }
-
-.id {
-  font-weight: 400;
+.mr {
+  margin-right: 0.5rem;
 }
-.id > span {
-  font-weight: 700;
-  color: var(--primary);
-}
-
-.due {
-  margin-left: 0.6rem;
-}
-.due > span {
-  color: var(--primary);
-}
-
-.client-name {
-  color: var(--primary);
-}
-
 .total {
   display: flex;
   align-items: center;
   justify-content: flex-start;
 
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--primary);
-
   width: 5rem;
 }
-.main-info {
-  display: flex;
-}
+
 .status {
   align-self: flex-end;
   display: flex;
@@ -82,20 +65,9 @@ mat-expansion-panel-header {
 .status.paid .dot {
   display: none;
 }
-.status-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .dot {
   font-size: 1.4rem;
   margin-right: 0.3rem;
-}
-.drawer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: var(--primaryLight);
 }
 .delete-button {
   display: flex;
@@ -128,25 +100,6 @@ mat-expansion-panel-header {
 
   height: 9rem;
 }
-.divide {
-  margin-bottom: 0.5rem;
-}
-.text-primary {
-  color: var(--primary);
-  font-weight: 500;
-}
-.text-primary-lg {
-  color: var(--primary);
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-right: 2rem;
-}
-.text-primary-md {
-  color: var(--primary);
-  font-size: 1rem;
-  margin-bottom: 0.4rem;
-  font-weight: 500;
-}
 
 @media only screen and (max-width: 600px) {
   .header {
@@ -170,10 +123,6 @@ mat-expansion-panel-header {
 
   .date-info {
     display: none;
-  }
-
-  .client-name {
-    margin-bottom: 0.4rem;
   }
 }
 

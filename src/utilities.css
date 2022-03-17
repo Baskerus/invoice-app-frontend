@@ -1,0 +1,60 @@
+/* Utility classes */
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.divide {
+  margin-bottom: 0.5rem;
+}
+
+.text-primary-thin {
+  color: var(--primary);
+  font-weight: 400;
+}
+.text-primary {
+  color: var(--primary);
+  font-weight: 500;
+}
+.text-primary-md {
+  color: var(--primary);
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+.text-primary-lg {
+  color: var(--primary);
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-right: 2rem;
+}
+.text-primary-xl {
+  color: var(--primary);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.text-light {
+  color: var(--primaryLight);
+}
+
+.mb {
+  margin-bottom: 0.4rem;
+}
+.mr {
+  margin-right: 1rem;
+}
+
+.btn-lg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 7rem;
+  height: 2.6rem;
+  padding: 0.3rem 1.3rem;
+}
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}

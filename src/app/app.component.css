@@ -5,7 +5,6 @@ mat-sidenav-container {
   overflow: auto;
 
   background-color: transparent;
-
 }
 
 mat-sidenav {
@@ -24,7 +23,8 @@ mat-sidenav-content {
   justify-content: center;
   align-items: center;
 
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .add-btn {

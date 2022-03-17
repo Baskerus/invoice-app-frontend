@@ -7,7 +7,6 @@
   flex-direction: column;
 
   width: clamp(200px, fit-content, 800px);
-  max-height: 600px;
 
   margin: auto;
   padding: 1rem;
@@ -73,11 +72,6 @@ ul li:last-child {
   width: 1.8rem;
 }
 
-.text-bold {
-  color: var(--primary);
-  font-weight: 600;
-}
-
 .btn-text {
   font-size: small;
   font-weight: 500;
@@ -86,14 +80,14 @@ ul li:last-child {
   margin-right: 0.2rem;
 }
 
-.text-light {
-  color: var(--primaryLight);
-}
-
 @media only screen and (max-width: 600px) {
   .inner-header {
     justify-content: center;
+    flex-direction: column;
     text-align: center;
+  }
+  .inner-header div {
+    margin-bottom: 0.1rem;
   }
   .add-btn {
     display: none;

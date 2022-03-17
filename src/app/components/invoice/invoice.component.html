@@ -7,21 +7,23 @@
   <mat-expansion-panel-header expandedHeight="4.6rem">
     <div class="header">
       <div *ngIf="!panelOpen" class="date-info">
-        <span class="id"
-          >#<span>{{ invoice.id }}</span></span
+        <span
+          >#<span class="text-primary mr">{{ invoice.id }}</span></span
         >
-        <span class="due">
-          Due <span>{{ date }}</span>
+        <span>
+          Due <span class="text-primary-thin">{{ date }}</span>
         </span>
       </div>
 
-      <span *ngIf="!panelOpen" class="client-name">{{ invoice.name }}</span>
-      <div class="main-info" [ngClass]="{ easeLeft: panelOpen }">
-        <span class="total" [ngClass]="{ 'text-primary-lg': panelOpen }"
+      <span *ngIf="!panelOpen" class="text-primary">{{ invoice.name }}</span>
+      <div class="flex-center" [ngClass]="{ easeLeft: panelOpen }">
+        <span
+          class="text-primary-lg"
+          [ngClass]="{ 'text-primary-xl': panelOpen }"
           >${{ floatTotal(invoice.total) }}</span
         >
         <div [ngClass]="{ paid: invoice.paid == true }" class="status">
-          <div class="status-text">
+          <div class="flex-center">
             <span class="dot">&#8226;</span
             >{{ invoice.paid ? "Paid" : "Pending" }}
           </div>

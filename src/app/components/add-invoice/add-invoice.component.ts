@@ -7,7 +7,7 @@ import {
   Input,
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Invoice } from 'src/app/Invoice';
+import { Invoice } from 'src/app/Interfaces/Invoice';
 import { InvoiceService } from 'src/app/service/invoice.service';
 
 @Component({

@@ -1,6 +1,6 @@
 <div class="inner-header">
   <div class="text-wrapper">
-    <span class="mat-title">Invoices</span>
+    <span class="text-primary-xl mb">Invoices</span>
     <span *ngIf="invoices.length !== 0" class="mat-body-2 text-light"
       >There are total of
       <span class="text-bold">{{ invoices.length }}</span> invoices.</span
@@ -36,19 +36,19 @@
   <div class="text-wrapper">
     <div>
       <span class="text-light">Pending: </span
-      ><span class="text-bold"> ${{ pendingTotal }}</span>
+      ><span class="text-primary"> ${{ pendingTotal }}</span>
     </div>
   </div>
   <div class="text-wrapper">
     <div>
       <span class="text-light">Paid: </span
-      ><span class="text-bold"> ${{ paidTotal }}</span>
+      ><span class="text-primary"> ${{ paidTotal }}</span>
     </div>
   </div>
   <div class="text-wrapper">
     <div>
       <span class="text-light">Total: </span
-      ><span class="text-bold"> ${{ total }}</span>
+      ><span class="text-primary"> ${{ total }}</span>
     </div>
   </div>
 </div>
