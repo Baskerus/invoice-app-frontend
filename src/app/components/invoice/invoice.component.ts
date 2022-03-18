@@ -31,14 +31,12 @@ export class InvoiceComponent implements OnInit {
   }
 
   handleDelete() {
-    this.invoiceService
-      .deleteInvoice(this.invoice.id)
-      .subscribe((resoponse) => {
-        // Timeout let's the contracting animation finish
-        setTimeout(() => {
-          this.triggerRender.emit();
-        }, 400);
-      });
+    this.invoiceService.deleteInvoice(this.invoice.id).subscribe(() => {
+      // Timeout let's the contracting animation finish
+      setTimeout(() => {
+        this.triggerRender.emit();
+      }, 400);
+    });
   }
 
   floatTotal(total) {
@@ -50,7 +48,7 @@ export class InvoiceComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result === true) {
-        /*   this.handleDelete();  TEMPORARILY DISALED FOR TESTING */
+        this.handleDelete();
         drawer.close();
       } else {
         return;
@@ -58,9 +56,14 @@ export class InvoiceComponent implements OnInit {
     });
   }
 
-  handleUpdateClick(target) {
+  handleUpdateClick(drawer) {
     this.hasUnsavedChanges = false;
-    this.invoiceService.updateInvoice(this.invoiceToUpdate).subscribe();
+    this.invoiceService.updateInvoice(this.invoiceToUpdate).subscribe(() => {
+      drawer.close();
+      setTimeout(() => {
+        this.triggerRender.emit();
+      }, 400);
+    });
   }
 
   setInvoiceToUpdate(property, value) {

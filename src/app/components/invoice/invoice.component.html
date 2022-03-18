@@ -190,7 +190,7 @@
       <button
         *ngIf="panelOpen && hasUnsavedChanges"
         [ngClass]="{ easeUp: drawer.opened }"
-        (click)="handleUpdateClick($event.target)"
+        (click)="handleUpdateClick(drawer)"
         class="invoice-btn flex-center"
         mat-button
       >
