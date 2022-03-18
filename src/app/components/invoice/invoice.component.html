@@ -49,7 +49,7 @@
         class="text-primary-lg input-wrapper input-mod total-input"
         [ngClass]="{ 'text-primary-xl': panelOpen }"
         [value]="floatTotal(invoice.total)"
-        (input)="handleInput($event.target)"
+        (input)="handleEdit()"
       />
 
       <div
@@ -60,8 +60,8 @@
         (click)="handleStatusButton($event)"
         [ngClass]="{
           paid:
-            (!hasUnsavedChanges && invoice.paid == true) ||
-            (hasUnsavedChanges && invoiceToUpdate.paid)
+            (!isDirty && invoice.paid == true) ||
+            (isDirty && invoice.paid)
         }"
         class="status"
       >
@@ -94,8 +94,8 @@
           <textarea
             id="description"
             class="text-primary input-mod description"
-            [value]="invoice.description"
-            (input)="handleInput($event.target)"
+            [(ngModel)]="invoice.description"
+            (input)="handleEdit()"
           ></textarea>
         </span>
       </span>
@@ -109,8 +109,8 @@
             id="name"
             class="text-primary-md input-mod"
             type="text"
-            [value]="invoice.name"
-            (input)="handleInput($event.target)"
+            [(ngModel)]="invoice.name"
+            (input)="handleEdit()"
         /></span>
       </span>
 
@@ -120,8 +120,8 @@
             id="address"
             class="text-light input-mod"
             type="text"
-            [value]="invoice.address"
-            (input)="handleInput($event.target)"
+            [(ngModel)]="invoice.address"
+            (input)="handleEdit()"
         /></span>
       </span>
 
@@ -131,8 +131,8 @@
             id="city"
             class="text-light input-mod"
             type="text"
-            [value]="invoice.city"
-            (input)="handleInput($event.target)"
+            [(ngModel)]="invoice.city"
+            (input)="handleEdit()"
         /></span>
       </span>
 
@@ -142,8 +142,8 @@
             id="code"
             class="text-light input-mod"
             type="number"
-            [value]="invoice.code"
-            (input)="handleInput($event.target)"
+            [(ngModel)]="invoice.code"
+            (input)="handleEdit()"
         /></span>
       </span>
 
@@ -152,8 +152,8 @@
           ><input
             id="country"
             class="text-light input-mod"
-            [value]="invoice.country"
-            (input)="handleInput($event.target)"
+            [(ngModel)]="invoice.country"
+            (input)="handleEdit()"
         /></span>
       </span>
     </div>
@@ -166,8 +166,8 @@
           ><input
             id="email"
             class="text-primary input-mod mb"
-            [value]="invoice.email"
-            (input)="handleInput($event.target)"
+            [(ngModel)]="invoice.email"
+            (input)="handleEdit()"
         /></span>
       </span>
 
@@ -188,7 +188,7 @@
         >
       </button>
       <button
-        *ngIf="panelOpen && hasUnsavedChanges"
+        *ngIf="panelOpen && isDirty"
         [ngClass]="{ easeUp: drawer.opened }"
         (click)="handleUpdateClick(drawer)"
         class="invoice-btn flex-center"
