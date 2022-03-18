@@ -28,27 +28,6 @@
     ></app-invoice>
   </mat-accordion>
 </div>
-<div class="inner-header">
-  <div class="text-wrapper"></div>
-</div>
-
-<div class="inner-header">
-  <div class="text-wrapper">
-    <div>
-      <span class="text-light">Pending: </span
-      ><span class="text-primary"> ${{ pendingTotal }}</span>
-    </div>
-  </div>
-  <div class="text-wrapper">
-    <div>
-      <span class="text-light">Paid: </span
-      ><span class="text-primary"> ${{ paidTotal }}</span>
-    </div>
-  </div>
-  <div class="text-wrapper">
-    <div>
-      <span class="text-light">Total: </span
-      ><span class="text-primary"> ${{ total }}</span>
-    </div>
-  </div>
+<div class="totals">
+  <app-invoices-total [invoices]="invoices"></app-invoices-total>
 </div>

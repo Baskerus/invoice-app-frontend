@@ -45,8 +45,8 @@
     >
       <span class="text-primary">$</span>
       <input
-        id="total"
         class="text-primary-lg input-wrapper input-mod total-input"
+        [(ngModel)]="invoice.total"
         [ngClass]="{ 'text-primary-xl': panelOpen }"
         [value]="floatTotal(invoice.total)"
         (input)="handleEdit()"
@@ -59,9 +59,7 @@
         [matRippleColor]="!invoice.paid ? '#37aa3733' : '#0437aa4d'"
         (click)="handleStatusButton($event)"
         [ngClass]="{
-          paid:
-            (!isDirty && invoice.paid == true) ||
-            (isDirty && invoice.paid)
+          paid: (!isDirty && invoice.paid == true) || (isDirty && invoice.paid)
         }"
         class="status"
       >
@@ -92,7 +90,6 @@
       <span class="relative">
         <span class="input-wrapper">
           <textarea
-            id="description"
             class="text-primary input-mod description"
             [(ngModel)]="invoice.description"
             (input)="handleEdit()"
@@ -106,7 +103,6 @@
       <span class="relative">
         <span class="input-wrapper"
           ><input
-            id="name"
             class="text-primary-md input-mod"
             type="text"
             [(ngModel)]="invoice.name"
@@ -117,7 +113,6 @@
       <span class="relative">
         <span class="input-wrapper"
           ><input
-            id="address"
             class="text-light input-mod"
             type="text"
             [(ngModel)]="invoice.address"
@@ -128,7 +123,6 @@
       <span class="relative">
         <span class="input-wrapper"
           ><input
-            id="city"
             class="text-light input-mod"
             type="text"
             [(ngModel)]="invoice.city"
@@ -139,7 +133,6 @@
       <span class="relative">
         <span class="input-wrapper"
           ><input
-            id="code"
             class="text-light input-mod"
             type="number"
             [(ngModel)]="invoice.code"
@@ -150,7 +143,6 @@
       <span class="relative">
         <span class="input-wrapper"
           ><input
-            id="country"
             class="text-light input-mod"
             [(ngModel)]="invoice.country"
             (input)="handleEdit()"
@@ -164,7 +156,6 @@
       <span class="relative">
         <span class="input-wrapper"
           ><input
-            id="email"
             class="text-primary input-mod mb"
             [(ngModel)]="invoice.email"
             (input)="handleEdit()"

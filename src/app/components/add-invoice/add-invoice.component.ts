@@ -4,7 +4,6 @@ import {
   Output,
   ViewEncapsulation,
   EventEmitter,
-  Input,
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Invoice } from 'src/app/interfaces/Invoice';

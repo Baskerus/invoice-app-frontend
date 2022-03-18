@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+
 import { InvoiceService } from 'src/app/service/invoice.service';
 import { DialogComponent } from '../dialog/dialog.component';
 
@@ -10,7 +11,7 @@ import { DialogComponent } from '../dialog/dialog.component';
 })
 export class InvoiceComponent implements OnInit {
   @Output() triggerRender = new EventEmitter();
-  @Input() invoice: any;
+  @Input() invoice;
   date: string;
   panelOpen: boolean = false;
   isDirty: boolean = false;

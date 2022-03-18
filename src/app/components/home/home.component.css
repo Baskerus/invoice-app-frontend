@@ -15,9 +15,20 @@
 
   overflow-y: auto;
 }
+app-invoices-total {
+  width: 100%;
+}
 
 ul li:last-child {
   margin-bottom: -1rem;
+}
+
+.totals {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: auto;
 }
 
 .inner-header {
