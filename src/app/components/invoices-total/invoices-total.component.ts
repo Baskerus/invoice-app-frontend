@@ -8,9 +8,9 @@ import { Invoice } from 'src/app/interfaces/Invoice';
 })
 export class InvoicesTotalComponent implements OnChanges {
   @Input() invoices: Invoice[];
-  paidSum: number = 0;
-  pendingSum: number = 0;
-  totalSum: number = 0;
+  paidSum: number;
+  pendingSum: number;
+  totalSum: number;
 
   constructor() {}
 
@@ -19,6 +19,10 @@ export class InvoicesTotalComponent implements OnChanges {
   }
 
   calculateSums() {
+    this.paidSum = 0;
+    this.pendingSum = 0;
+    this.totalSum = 0;
+
     this.invoices.forEach((invoice) => {
       this.totalSum = this.totalSum + invoice.total;
       if (invoice.paid) {
