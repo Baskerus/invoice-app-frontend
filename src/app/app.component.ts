@@ -9,7 +9,8 @@ import { SidebarService } from './service/sidebar.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  invoices = [];
+  // Could be moved elsewhere depending on what component needs invoices;
+  invoices: Invoice[] = [];
   sidebarOpen: boolean;
 
   constructor(
@@ -32,21 +33,3 @@ export class AppComponent implements OnInit {
     });
   }
 }
-
-/* response.forEach((res) => {
-  // Iterates through the array and adds value to the total
-  this.invoiceService.total = this.invoiceService.total + res.total;
-  this.total = this.invoiceService.total;
-
-  if (res.paid) {
-    // Adds to paid total or pending total depending on the response.paid value
-    this.invoiceService.paidTotal =
-      this.invoiceService.paidTotal + res.total;
-    this.paidTotal = this.invoiceService.paidTotal;
-  } else if (!res.paid) {
-    this.invoiceService.pendingTotal =
-      this.invoiceService.pendingTotal + res.total;
-    this.pendingTotal = this.invoiceService.pendingTotal;
-  }
-});
- */
