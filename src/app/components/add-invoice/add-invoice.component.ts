@@ -39,7 +39,7 @@ export class AddInvoiceComponent implements OnInit {
     );
 
     // Prevents unchecked checkbox from sending Null
-    !invoiceToAdd.paid ? (invoiceToAdd.paid = false) : '';
+    !invoiceToAdd.isPaid ? (invoiceToAdd.isPaid = false) : '';
 
     // Sends the invoice (in the form of form.value (JSON object)) as addInvoice parameter
     this.invoiceService

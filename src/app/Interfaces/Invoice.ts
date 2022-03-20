@@ -8,5 +8,5 @@ export interface Invoice {
   due: number;
   description: string;
   total: number;
-  paid: boolean;
+  isPaid: boolean;
 }

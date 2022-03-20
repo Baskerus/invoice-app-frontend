@@ -27,10 +27,10 @@
           [ngClass]="{ 'text-primary-xl': panelOpen }"
           >${{ floatTotal(invoice.total) }}</span
         >
-        <div [ngClass]="{ paid: invoice.paid == true }" class="status">
+        <div [ngClass]="{ paid: invoice.isPaid == true }" class="status">
           <div class="flex-center">
             <span class="dot">&#8226;</span
-            >{{ invoice.paid ? "Paid" : "Pending" }}
+            >{{ invoice.isPaid ? "Paid" : "Pending" }}
           </div>
         </div>
       </div>
@@ -56,16 +56,17 @@
         matRipple
         [matRippleRadius]="50"
         [matRippleCentered]="true"
-        [matRippleColor]="!invoice.paid ? '#37aa3733' : '#0437aa4d'"
+        [matRippleColor]="!invoice.isPaid ? '#37aa3733' : '#0437aa4d'"
         (click)="handleStatusButton($event)"
         [ngClass]="{
-          paid: (!isDirty && invoice.paid == true) || (isDirty && invoice.paid)
+          paid:
+            (!isDirty && invoice.isPaid == true) || (isDirty && invoice.isPaid)
         }"
         class="status"
       >
         <div class="flex-center">
           <span class="dot">&#8226;</span
-          >{{ invoice.paid ? "Paid" : "Pending" }}
+          >{{ invoice.isPaid ? "Paid" : "Pending" }}
         </div>
       </div>
     </div>

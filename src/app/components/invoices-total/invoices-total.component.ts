@@ -25,7 +25,7 @@ export class InvoicesTotalComponent implements OnChanges {
 
     this.invoices.forEach((invoice) => {
       this.totalSum = this.totalSum + invoice.total;
-      if (invoice.paid) {
+      if (invoice.isPaid) {
         this.paidSum = this.paidSum + invoice.total;
       } else {
         this.pendingSum = this.pendingSum + invoice.total;

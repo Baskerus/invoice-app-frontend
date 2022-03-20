@@ -85,7 +85,7 @@ export class InvoiceComponent implements OnInit {
   }
 
   handleStatusButton(e) {
-    this.invoice.paid = !this.invoice.paid;
+    this.invoice.isPaid = !this.invoice.isPaid;
     this.isDirty = true;
   }
 
