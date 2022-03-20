@@ -5,7 +5,7 @@ export interface Invoice {
   code: number;
   city: string;
   country: string;
-  due: number;
+  due_date: number;
   description: string;
   total: number;
   isPaid: boolean;

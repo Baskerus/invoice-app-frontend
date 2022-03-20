@@ -23,7 +23,7 @@ export class InvoiceComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.date = new Date(this.invoice.due * 1000).toLocaleString('en-GB', {
+    this.date = new Date(this.invoice.due_date * 1000).toLocaleString('en-GB', {
       dateStyle: 'short',
     });
     this.invoice = this.invoice;
@@ -80,7 +80,7 @@ export class InvoiceComponent implements OnInit {
       dateStyle: 'short',
     });
     this.date = newDate;
-    this.invoice.due = dateEpoch / 1000;
+    this.invoice.due_date = dateEpoch / 1000;
     this.isDirty = true;
   }
 

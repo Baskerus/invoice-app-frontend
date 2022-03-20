@@ -77,7 +77,13 @@
   <div class="space-between m">
     <mat-form-field class="date-input" appearance="outline">
       <mat-label>Choose a due date</mat-label>
-      <input matInput name="due" ngModel [matDatepicker]="picker" required />
+      <input
+        matInput
+        name="due_date"
+        ngModel
+        [matDatepicker]="picker"
+        required
+      />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
