@@ -10,10 +10,9 @@ export class SidebarService {
 
   public toggleSidebar = () => {
     this.sidebarOpen = !this.sidebarOpen;
-    console.log('sidebar open: ', this.sidebarOpen);
   };
 
-  getSidebarState(){
+  getSidebarState() {
     return this.sidebarOpen;
   }
 }

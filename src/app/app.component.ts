@@ -9,7 +9,7 @@ import { SidebarService } from './service/sidebar.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  // Could be moved elsewhere depending on what component needs invoices;
+  // Could be moved elsewhere depending on which compoen needs invoices;
   invoices: Invoice[] = [];
   sidebarOpen: boolean;
 
@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
 
   getInvoices() {
     this.invoiceService.getInvoices().subscribe((response: Invoice[]) => {
-      this.invoices = response; // Populates invoices arr with response (arr)
+      this.invoices = response;
     });
   }
 }

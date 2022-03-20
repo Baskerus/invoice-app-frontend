@@ -56,7 +56,6 @@ export class InvoiceComponent implements OnInit {
   }
 
   handleUpdateClick(drawer) {
-    console.log(this.invoice);
     this.isDirty = false;
     this.invoiceService.updateInvoice(this.invoice).subscribe(() => {
       drawer.close();

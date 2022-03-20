@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Invoice } from 'src/app/interfaces/Invoice';
-import { SidebarService } from 'src/app/service/sidebar.service';
 
 @Component({
   selector: 'app-home',
@@ -12,9 +11,9 @@ export class HomeComponent implements OnInit {
   @Output() triggerRender = new EventEmitter();
   @Input() invoices: Invoice[];
 
-  sidebarOpen = this.sidebarService.getSidebarState();
 
-  constructor(private sidebarService: SidebarService) {}
+
+  constructor() {}
 
   ngOnInit(): void {}
 

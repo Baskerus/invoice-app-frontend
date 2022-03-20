@@ -6,7 +6,6 @@ import {
   EventEmitter,
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Invoice } from 'src/app/interfaces/Invoice';
 import { InvoiceService } from 'src/app/service/invoice.service';
 
 @Component({
@@ -38,15 +37,13 @@ export class AddInvoiceComponent implements OnInit {
       (invoiceToAdd.due_date / 1000).toLocaleString().replace(/,/g, '')
     );
 
-    console.log('Sending date: ', invoiceToAdd.due_date);
-
     // Prevents unchecked checkbox from sending Null
     !invoiceToAdd.isPaid ? (invoiceToAdd.isPaid = false) : '';
 
     // Sends the invoice (in the form of form.value (JSON object)) as addInvoice parameter
     this.invoiceService
       .addInvoice(invoiceToAdd)
-      .subscribe((response: Invoice) => {
+      .subscribe(() => {
         this.invoiceService.getInvoices();
         // Triggers render after adding
         this.emitTriggerRenderEvent();

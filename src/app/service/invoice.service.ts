@@ -27,7 +27,6 @@ export class InvoiceService {
   }
 
   public updateInvoice(invoice: Invoice): Observable<Invoice> {
-    console.log('Trying update');
     return this.http.put<Invoice>(
       `${this.apiServerUrl}/invoices/update`,
       invoice
