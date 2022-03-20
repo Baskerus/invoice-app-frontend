@@ -182,7 +182,7 @@
       <button
         *ngIf="panelOpen && isDirty"
         [ngClass]="{ easeUp: drawer.opened }"
-        (click)="handleUpdateClick(drawer)"
+        (click)="handleSyncButton(drawer)"
         class="invoice-btn flex-center"
         mat-button
       >

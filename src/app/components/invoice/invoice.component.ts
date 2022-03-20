@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Invoice } from 'src/app/interfaces/Invoice';
 
 import { InvoiceService } from 'src/app/service/invoice.service';
 import { DialogComponent } from '../dialog/dialog.component';
@@ -11,7 +12,7 @@ import { DialogComponent } from '../dialog/dialog.component';
 })
 export class InvoiceComponent implements OnInit {
   @Output() triggerRender = new EventEmitter();
-  @Input() invoice;
+  @Input() invoice: any;
   date: string;
   panelOpen: boolean = false;
   isDirty: boolean = false;
@@ -31,15 +32,11 @@ export class InvoiceComponent implements OnInit {
 
   handleDelete() {
     this.invoiceService.deleteInvoice(this.invoice.id).subscribe(() => {
-      // Timeout let's the contracting animation finish
+      // Timeout lets the contracting animation finish
       setTimeout(() => {
         this.triggerRender.emit();
       }, 400);
     });
-  }
-
-  floatTotal(total) {
-    return parseFloat(total).toFixed(2);
   }
 
   openDialog(drawer) {
@@ -55,7 +52,7 @@ export class InvoiceComponent implements OnInit {
     });
   }
 
-  handleUpdateClick(drawer) {
+  handleSyncButton(drawer) {
     this.isDirty = false;
     this.invoiceService.updateInvoice(this.invoice).subscribe(() => {
       drawer.close();
@@ -65,20 +62,12 @@ export class InvoiceComponent implements OnInit {
     });
   }
 
-  setinvoice(property, value) {
-    switch (property) {
-      case 'name':
-        this.invoice.name = value;
-    }
-  }
-
-  changeDate(value) {
+  changeDate(pickerDate) {
     this.dateChanged = false;
-    let dateEpoch = Date.parse(value);
-    let newDate = new Date(dateEpoch).toLocaleString('en-GB', {
+    let dateEpoch = Date.parse(pickerDate);
+    this.date = new Date(dateEpoch).toLocaleString('en-GB', {
       dateStyle: 'short',
     });
-    this.date = newDate;
     this.invoice.due_date = dateEpoch / 1000;
     this.isDirty = true;
   }
@@ -90,5 +79,9 @@ export class InvoiceComponent implements OnInit {
 
   handleEdit() {
     this.isDirty = true;
+  }
+
+  floatTotal(total) {
+    return parseFloat(total).toFixed(2);
   }
 }

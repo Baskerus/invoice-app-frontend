@@ -9,8 +9,7 @@ import { SidebarService } from './service/sidebar.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  // Could be moved elsewhere depending on which compoen needs invoices;
-  invoices: Invoice[] = [];
+  invoices: Invoice[] = []; // Can be moved depending on which component needs invoices
   sidebarOpen: boolean;
 
   constructor(

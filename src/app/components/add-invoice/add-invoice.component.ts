@@ -32,21 +32,19 @@ export class AddInvoiceComponent implements OnInit {
   onAddInvoice(addForm: NgForm) {
     let invoiceToAdd = addForm.value;
 
-    // Converts date from picker to epoch
+    // Formats date to epoch
     invoiceToAdd.due_date = parseInt(
       (invoiceToAdd.due_date / 1000).toLocaleString().replace(/,/g, '')
     );
 
-    // Prevents unchecked checkbox from sending Null
+    // Prevents unchecked checkbox from sending null
     !invoiceToAdd.isPaid ? (invoiceToAdd.isPaid = false) : '';
 
-    // Sends the invoice (in the form of form.value (JSON object)) as addInvoice parameter
-    this.invoiceService
-      .addInvoice(invoiceToAdd)
-      .subscribe(() => {
-        this.invoiceService.getInvoices();
-        // Triggers render after adding
-        this.emitTriggerRenderEvent();
-      });
+    // Sends the invoice
+    this.invoiceService.addInvoice(invoiceToAdd).subscribe(() => {
+      this.invoiceService.getInvoices();
+      // Triggers render after adding
+      this.emitTriggerRenderEvent();
+    });
   }
 }
