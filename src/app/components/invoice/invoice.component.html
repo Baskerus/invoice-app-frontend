@@ -12,7 +12,7 @@
         >
         <span>
           Due
-          <span class="text-primary-thin">{{ date }}</span>
+          <span class="text-primary-thin">{{ displayDate }}</span>
         </span>
       </div>
 
@@ -74,7 +74,7 @@
     <div class="col">
       <span>Payment Due:</span>
       <span class="text-primary divide pointer" (click)="picker.open()">{{
-        date
+        displayDate
       }}</span>
 
       <mat-form-field class="hidden">

@@ -33,10 +33,12 @@ export class AddInvoiceComponent implements OnInit {
     let invoiceToAdd = addForm.value;
 
     // Formats date to epoch
-    invoiceToAdd.due_date = parseInt(
+    /*    invoiceToAdd.due_date = parseInt(
       (invoiceToAdd.due_date / 1000).toLocaleString().replace(/,/g, '')
     );
-
+ */
+    invoiceToAdd.due_date = invoiceToAdd.due_date.toISOString().split('T')[0];
+    
     // Prevents unchecked checkbox from sending null
     !invoiceToAdd.isPaid ? (invoiceToAdd.isPaid = false) : '';
 

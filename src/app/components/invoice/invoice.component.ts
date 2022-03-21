@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Invoice } from 'src/app/interfaces/Invoice';
 
 import { InvoiceService } from 'src/app/service/invoice.service';
 import { DialogComponent } from '../dialog/dialog.component';
@@ -17,6 +16,7 @@ export class InvoiceComponent implements OnInit {
   panelOpen: boolean = false;
   isDirty: boolean = false;
   dateChanged: boolean = false;
+  displayDate: string;
 
   constructor(
     private invoiceService: InvoiceService,
@@ -24,9 +24,7 @@ export class InvoiceComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.date = new Date(this.invoice.due_date * 1000).toLocaleString('en-GB', {
-      dateStyle: 'short',
-    });
+    this.displayDate = (this.invoice.due_date.split('-').reverse().join('-'));
     this.invoice = this.invoice;
   }
 
@@ -64,11 +62,15 @@ export class InvoiceComponent implements OnInit {
 
   changeDate(pickerDate) {
     this.dateChanged = false;
-    let dateEpoch = Date.parse(pickerDate);
-    this.date = new Date(dateEpoch).toLocaleString('en-GB', {
-      dateStyle: 'short',
-    });
-    this.invoice.due_date = dateEpoch / 1000;
+
+    // Date conversion
+    this.invoice.due_date = pickerDate.split('/').reverse();
+    var tmp = this.invoice.due_date[2];
+    this.invoice.due_date[2] = this.invoice.due_date[1];
+    this.invoice.due_date[1] = tmp;
+    this.invoice.due_date = this.invoice.due_date.join('-');
+
+    this.displayDate = (this.invoice.due_date.split('-').reverse().join('-'));
     this.isDirty = true;
   }
 
