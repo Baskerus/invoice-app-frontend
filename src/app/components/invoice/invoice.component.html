@@ -81,7 +81,7 @@
         <input
           #input
           matInput
-          (dateInput)="changeDate(input.value)"
+          (dateInput)="handlePicker(input.value)"
           [matDatepicker]="picker"
         />
         <mat-datepicker #picker></mat-datepicker>
