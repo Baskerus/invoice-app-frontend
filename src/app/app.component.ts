@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Invoice } from './interfaces/Invoice';
-import { InvoiceService } from './service/invoice.service';
-import { SidebarService } from './service/sidebar.service';
+import { InvoiceService } from './services/invoice.service';
 
 @Component({
   selector: 'app-root',
@@ -14,16 +13,10 @@ export class AppComponent implements OnInit {
 
   constructor(
     private invoiceService: InvoiceService,
-    private sidebarService: SidebarService
   ) {}
 
   ngOnInit(): void {
     this.getInvoices();
-  }
-
-  showSidebar(option: boolean) {
-    this.sidebarService.sidebarOpen = option;
-    this.sidebarOpen = this.sidebarService.sidebarOpen;
   }
 
   getInvoices() {

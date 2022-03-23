@@ -78,6 +78,7 @@
     <mat-form-field class="date-input" appearance="outline">
       <mat-label>Choose a due date</mat-label>
       <input
+        #input
         matInput
         name="dueDate"
         ngModel
@@ -105,7 +106,7 @@
       class="btn-lg"
       mat-button
       color="primary"
-      (click)="emitCloseEvent($event)"
+      (click)="sidebar.close()"
     >
       Cancel
     </button>
@@ -115,7 +116,7 @@
       type="submit"
       class="btn-lg"
       color="primary"
-      (click)="emitCloseEvent($event)"
+      (click)="sidebar.close()"
       [disabled]="addForm.invalid"
     >
       <mat-icon class="icon" aria-hidden="false" aria-label="add icon"
