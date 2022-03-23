@@ -24,7 +24,7 @@ export class InvoiceComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.displayDate = (this.invoice.due_date.split('-').reverse().join('-'));
+    this.displayDate = (this.invoice.dueDate.split('-').reverse().join('-'));
     this.invoice = this.invoice;
   }
 
@@ -64,13 +64,13 @@ export class InvoiceComponent implements OnInit {
     this.dateChanged = false;
 
     // Date conversion
-    this.invoice.due_date = pickerDate.split('/').reverse();
-    var tmp = this.invoice.due_date[2];
-    this.invoice.due_date[2] = this.invoice.due_date[1];
-    this.invoice.due_date[1] = tmp;
-    this.invoice.due_date = this.invoice.due_date.join('-');
+    this.invoice.dueDate = pickerDate.split('/').reverse();
+    var tmp = this.invoice.dueDate[2];
+    this.invoice.dueDate[2] = this.invoice.dueDate[1];
+    this.invoice.dueDate[1] = tmp;
+    this.invoice.dueDate = this.invoice.dueDate.join('-');
 
-    this.displayDate = (this.invoice.due_date.split('-').reverse().join('-'));
+    this.displayDate = (this.invoice.dueDate.split('-').reverse().join('-'));
     this.isDirty = true;
   }
 
