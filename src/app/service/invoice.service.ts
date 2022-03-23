@@ -9,9 +9,6 @@ import { Invoice } from '../interfaces/Invoice';
 })
 export class InvoiceService {
   private apiServerUrl = environment.apiBaseUrl;
-  public total = 0;
-  public pendingTotal = 0;
-  public paidTotal = 0;
 
   constructor(private http: HttpClient) {}
 
