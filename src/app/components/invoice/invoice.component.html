@@ -57,7 +57,7 @@
         [matRippleRadius]="50"
         [matRippleCentered]="true"
         [matRippleColor]="!invoice.isPaid ? '#37aa3733' : '#0437aa4d'"
-        (click)="handleStatusButton($event)"
+        (click)="handleStatusButton()"
         [ngClass]="{
           paid:
             (!isDirty && invoice.isPaid == true) || (isDirty && invoice.isPaid)

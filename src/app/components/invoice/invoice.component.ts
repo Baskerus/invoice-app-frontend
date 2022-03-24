@@ -19,7 +19,6 @@ export class InvoiceComponent implements OnInit {
   date: string;
   panelOpen: boolean = false;
   isDirty: boolean = false;
-  dateChanged: boolean = false;
   displayDate: string;
 
   constructor(
@@ -41,7 +40,7 @@ export class InvoiceComponent implements OnInit {
     });
   }
 
-  handleStatusButton(e) {
+  handleStatusButton() {
     this.invoice.isPaid = !this.invoice.isPaid;
     this.isDirty = true;
   }
@@ -50,7 +49,6 @@ export class InvoiceComponent implements OnInit {
     this.invoice.dueDate = pickerDate.replace(/\//g, '-');
     this.displayDate = this.invoice.dueDate.split('-').reverse().join('-');
     this.isDirty = true;
-    this.dateChanged = false;
   }
 
   openDialog(drawer) {
