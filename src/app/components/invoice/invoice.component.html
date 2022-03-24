@@ -6,7 +6,7 @@
 >
   <mat-expansion-panel-header expandedHeight="4.6rem">
     <div class="header">
-      <div *ngIf="!panelOpen" class="date-info">
+      <div [hidden]="panelOpen" class="date-info">
         <span
           >#<span class="text-primary mr">{{ invoice.id }}</span></span
         >
@@ -16,7 +16,7 @@
         </span>
       </div>
 
-      <span *ngIf="!panelOpen" class="text-primary">{{ invoice.name }}</span>
+      <span [hidden]="panelOpen" class="text-primary">{{ invoice.name }}</span>
       <div
         *ngIf="!panelOpen"
         class="flex-center"
@@ -29,8 +29,10 @@
         >
         <div [ngClass]="{ paid: invoice.isPaid == true }" class="status">
           <div class="flex-center">
-            <span class="dot">&#8226;</span
-            >{{ invoice.isPaid ? "Paid" : "Pending" }}
+            <span class="dot">&#8226;</span>
+            <span id="status-display">{{
+              invoice.isPaid ? "Paid" : "Pending"
+            }}</span>
           </div>
         </div>
       </div>
@@ -43,6 +45,7 @@
       class="flex-center fake-header"
       [ngClass]="{ easeLeft: panelOpen }"
     >
+      <h1 cl></h1>
       <span class="text-primary">$</span>
       <input
         class="text-primary-lg input-wrapper input-mod total-input"
@@ -65,8 +68,8 @@
         class="status"
       >
         <div class="flex-center">
-          <span class="dot">&#8226;</span
-          >{{ invoice.isPaid ? "Paid" : "Pending" }}
+          <span class="dot">&#8226;</span>
+          {{ invoice.isPaid ? "Paid" : "Pending" }}
         </div>
       </div>
     </div>
@@ -79,9 +82,9 @@
 
       <mat-form-field class="hidden">
         <input
-          #input
+          #datePicker
           matInput
-          (dateInput)="handlePicker(input.value)"
+          (dateInput)="handlePicker(datePicker.value)"
           [matDatepicker]="picker"
         />
         <mat-datepicker #picker></mat-datepicker>
@@ -104,6 +107,7 @@
       <span class="relative">
         <span class="input-wrapper"
           ><input
+            id="name-input"
             class="text-primary-md input-mod"
             type="text"
             [(ngModel)]="invoice.name"
@@ -114,6 +118,7 @@
       <span class="relative">
         <span class="input-wrapper"
           ><input
+            id="address-input"
             class="text-light input-mod"
             type="text"
             [(ngModel)]="invoice.address"
@@ -144,6 +149,7 @@
       <span class="relative">
         <span class="input-wrapper"
           ><input
+            type="text"
             class="text-light input-mod"
             [(ngModel)]="invoice.country"
             (input)="handleEdit()"
@@ -157,6 +163,7 @@
       <span class="relative">
         <span class="input-wrapper"
           ><input
+            type="email"
             class="text-primary input-mod mb"
             [(ngModel)]="invoice.email"
             (input)="handleEdit()"
