@@ -1,13 +1,9 @@
 <div class="inner-header">
   <div class="text-wrapper">
     <span class="text-primary-xl mb">Invoices</span>
-    <span *ngIf="invoices.length !== 0" class="mat-body-2 text-light"
-      >There are total of
-      <span class="text-bold">{{ invoices.length }}</span> invoices.</span
-    >
-    <span *ngIf="invoices.length === 0" class="mat-body-2 text-light"
-      >There are no invoices to show.</span
-    >
+    <span id="invoices-number" class="mat-body-2 text-light"
+      >{{ numberOfInvoices() }}
+    </span>
   </div>
   <div>
     <div matRipple class="add-btn" (click)="sidebar.open()">
