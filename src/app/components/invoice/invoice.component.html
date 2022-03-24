@@ -23,6 +23,7 @@
         [ngClass]="{ easeLeft: panelOpen }"
       >
         <span
+          id="header-total"
           class="text-primary-lg"
           [ngClass]="{ 'text-primary-xl': panelOpen }"
           >${{ floatTotal(invoice.total) }}</span
@@ -41,17 +42,17 @@
 
   <div class="drawer">
     <div
-      *ngIf="panelOpen"
       class="flex-center fake-header"
-      [ngClass]="{ easeLeft: panelOpen }"
+      [ngClass]="{ easeLeft: panelOpen, hidden: !panelOpen }"
     >
       <h1 cl></h1>
       <span class="text-primary">$</span>
       <input
+        id="drawer-total"
         class="text-primary-lg input-wrapper input-mod total-input"
         [(ngModel)]="invoice.total"
         [ngClass]="{ 'text-primary-xl': panelOpen }"
-        [value]="floatTotal(invoice.total)"
+        [value]="invoice.total"
         (input)="handleEdit()"
       />
 
@@ -94,8 +95,10 @@
       <span class="relative">
         <span class="input-wrapper">
           <textarea
+            id="description"
             class="text-primary input-mod description"
             [(ngModel)]="invoice.description"
+            [value]="invoice.description"
             (input)="handleEdit()"
           ></textarea>
         </span>
@@ -111,6 +114,7 @@
             class="text-primary-md input-mod"
             type="text"
             [(ngModel)]="invoice.name"
+            [value]="invoice.name"
             (input)="handleEdit()"
         /></span>
       </span>
@@ -122,6 +126,7 @@
             class="text-light input-mod"
             type="text"
             [(ngModel)]="invoice.address"
+            [value]="invoice.address"
             (input)="handleEdit()"
         /></span>
       </span>
@@ -129,9 +134,11 @@
       <span class="relative">
         <span class="input-wrapper"
           ><input
+            id="city-input"
             class="text-light input-mod"
             type="text"
             [(ngModel)]="invoice.city"
+            [value]="invoice.city"
             (input)="handleEdit()"
         /></span>
       </span>
@@ -139,9 +146,11 @@
       <span class="relative">
         <span class="input-wrapper"
           ><input
+            id="code-input"
             class="text-light input-mod"
             type="number"
             [(ngModel)]="invoice.code"
+            [value]="invoice.code"
             (input)="handleEdit()"
         /></span>
       </span>
@@ -149,9 +158,11 @@
       <span class="relative">
         <span class="input-wrapper"
           ><input
+            id="country-input"
             type="text"
             class="text-light input-mod"
             [(ngModel)]="invoice.country"
+            [value]="invoice.country"
             (input)="handleEdit()"
         /></span>
       </span>
@@ -163,9 +174,11 @@
       <span class="relative">
         <span class="input-wrapper"
           ><input
+            id="email-input"
             type="email"
             class="text-primary input-mod mb"
             [(ngModel)]="invoice.email"
+            [value]="invoice.email"
             (input)="handleEdit()"
         /></span>
       </span>

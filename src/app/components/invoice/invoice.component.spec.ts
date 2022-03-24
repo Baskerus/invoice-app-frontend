@@ -1,12 +1,5 @@
-import { getNsPrefix } from '@angular/compiler';
-import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
-import {
-  ComponentFixture,
-  fakeAsync,
-  TestBed,
-  tick,
-} from '@angular/core/testing';
-import { MatDialog, MatDialogActions } from '@angular/material/dialog';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialog } from '@angular/material/dialog';
 import { By } from '@angular/platform-browser';
 import { InvoiceService } from 'src/app/services/invoice.service';
 import { InvoiceComponent } from './invoice.component';
@@ -14,90 +7,60 @@ import { InvoiceComponent } from './invoice.component';
 describe('Invoice Component', () => {
   let component: InvoiceComponent;
   let fixture: ComponentFixture<InvoiceComponent>;
-  let serviceStub;
-  let debugElement: DebugElement;
 
   beforeEach(async () => {
-    serviceStub = {
-      updateInvoice: () => true,
-      deleteInvoices: () => true,
-    };
-
     TestBed.configureTestingModule({
       imports: [],
       providers: [
-        { provide: InvoiceService, useValue: serviceStub },
+        { provide: InvoiceService, useValue: {} },
         { provide: MatDialog, useValue: {} },
       ],
       declarations: [InvoiceComponent],
-      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(InvoiceComponent);
     component = fixture.componentInstance;
-    debugElement = fixture.debugElement;
     component.invoice = {
       name: 'Basker Onian',
-      email: 'ttt@ttt.com',
+      email: 'test@test.com',
       address: 'B6 Pencil Way',
       city: 'Worcestershire',
       code: 94105,
       country: 'United Kingdom',
       dueDate: '2022-03-18',
       description: 'fdsfdf',
-      total: 1.33,
-      isPaid: false,
+      total: 12,
+      isPaid: true,
     };
     fixture.detectChanges();
   });
-
-  /*   beforeEach(() => {
-    component.invoice = {
-      id: 195,
-      name: 'Basker Onian',
-      email: 'ttt@ttt.com',
-      address: 'B6 Pencil Way',
-      city: 'Worcestershire',
-      code: 94105,
-      country: 'United Kingdom',
-      dueDate: '2022-03-18',
-      description: 'fdsfdf',
-      total: 1.33,
-      isPaid: false,
-    };
-  }); */
 
   it('should create component', () => {
     expect(component).toBeTruthy();
   });
 
   it('should format picked date', () => {
-    // Arrange
-
-    // Act
     component.ngOnInit();
-    // Assert
+
     expect(component.displayDate).toBe('18-03-2022');
   });
 
   it('should format initial display date', () => {
-    // Arrange
     component.invoice = { dueDate: '2022-04-08' };
-    // Act
+
     component.handlePicker('2022/11/03');
-    // Assert
+
     expect(component.displayDate).toBe('03-11-2022');
     expect(component.isDirty).toBe(true);
   });
 
   it('should switch paid status', () => {
-    // Arrange
     component.invoice = { isPaid: true };
-    // Act
+
     component.handleStatusButton();
-    // Assert
+
     expect(component.invoice).toEqual({ isPaid: false });
   });
 
@@ -112,10 +75,57 @@ describe('Invoice Component', () => {
 
   it('should display "pending" if invoice is not paid', () => {
     component.invoice.isPaid = false;
+
     fixture.detectChanges();
+
     expect(
       fixture.debugElement.query(By.css('#status-display')).nativeElement
         .innerText
     ).toBe('Pending');
+  });
+
+  it('should display invoice description', () => {
+    expect(
+      fixture.debugElement.query(By.css('#description')).nativeElement.value
+    ).toBe(component.invoice.description);
+  });
+
+  it('should display invoice total in header', () => {
+    expect(
+      fixture.debugElement.query(By.css('#header-total')).nativeElement
+        .innerText
+    ).toBe('$' + component.invoice.total.toFixed(2));
+  });
+
+  it('should display invoice total in drawer', () => {
+    expect(
+      fixture.debugElement.query(By.css('#drawer-total')).nativeElement.value
+    ).toBe(JSON.stringify(component.invoice.total));
+  });
+
+  it('should display bill info', () => {
+    expect(
+      fixture.debugElement.query(By.css('#name-input')).nativeElement.value
+    ).toBe(component.invoice.name);
+
+    expect(
+      fixture.debugElement.query(By.css('#address-input')).nativeElement.value
+    ).toBe(component.invoice.address);
+
+    expect(
+      fixture.debugElement.query(By.css('#city-input')).nativeElement.value
+    ).toBe(component.invoice.city);
+
+    expect(
+      fixture.debugElement.query(By.css('#code-input')).nativeElement.value
+    ).toBe(JSON.stringify(component.invoice.code));
+
+    expect(
+      fixture.debugElement.query(By.css('#country-input')).nativeElement.value
+    ).toBe(component.invoice.country);
+
+    expect(
+      fixture.debugElement.query(By.css('#email-input')).nativeElement.value
+    ).toBe(component.invoice.email);
   });
 });
