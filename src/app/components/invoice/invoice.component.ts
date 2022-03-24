@@ -55,7 +55,7 @@ export class InvoiceComponent implements OnInit {
     let dialogRef = this.dialog.open(DialogComponent);
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
+      if (result === true) {
         this.handleDelete();
         drawer.close();
       }
