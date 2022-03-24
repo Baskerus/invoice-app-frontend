@@ -4,13 +4,12 @@ import { By } from '@angular/platform-browser';
 import { InvoiceService } from 'src/app/services/invoice.service';
 import { InvoiceComponent } from './invoice.component';
 
-describe('Invoice Component', () => {
+describe('InvoiceComponent', () => {
   let component: InvoiceComponent;
   let fixture: ComponentFixture<InvoiceComponent>;
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      imports: [],
       providers: [
         { provide: InvoiceService, useValue: {} },
         { provide: MatDialog, useValue: {} },
